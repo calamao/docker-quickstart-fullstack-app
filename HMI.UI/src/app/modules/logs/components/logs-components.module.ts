@@ -1,10 +1,9 @@
 import { SharedModule } from './../../../shared/shared.module';
-import { TranslateModule } from '@ngx-translate/core';
-import { HelloComponent } from './hello/hello.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LogsTableComponent } from './logs-table/logs-table.component';
 import { LogsIconSeverityComponent } from './logs-icon-severity/logs-icon-severity.component';
+import { LogsTable2Component } from './logs-table2/logs-table2.component';
 
 @NgModule({
   // eslint-disable-next-line prettier/prettier
@@ -13,14 +12,14 @@ import { LogsIconSeverityComponent } from './logs-icon-severity/logs-icon-severi
     SharedModule,
   ],
   exports: [
-    HelloComponent,
     LogsTableComponent,
     LogsIconSeverityComponent,
+    LogsTable2Component,
   ],
   declarations: [
-    HelloComponent,
     LogsTableComponent,
     LogsIconSeverityComponent,
+    LogsTable2Component,
   ],
 })
 export class LogsComponentsModule {}

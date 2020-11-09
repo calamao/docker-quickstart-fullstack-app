@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LayoutComponent } from './core/layout/layout/layout.component';
 import { APPRoutes } from '@app/core/constants/constants';
 import { AuthenticatedGuard } from './core/services/guards/authenticated.guard';
 import { LayoutComponent } from './core/layout/layout/layout.component';

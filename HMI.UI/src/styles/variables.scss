@@ -8,7 +8,7 @@
 // main colors extracted from the Theme:
 // default: 500, lighter: 100, darker: 700
 $primary-color: mat-color($app-primary-palette, default);
-// (should be equivalent to ABB blue: $abb-blue-color: #36f;)
+// (should be equivalent to main blue: $app-blue-color: #36f;)
 
 // accent colors
 $accent-color: mat-color($app-accent-palette, default);
@@ -18,11 +18,12 @@ $accent-color-darker: mat-color($app-accent-palette, darker);
 // warn colors
 $warn-color: mat-color($app-warn-palette, default);
 
-$abb-blue-color: #36f;
+$app-blue-color: #36f;
 
-$abb-primary-blue: $abb-blue-color;
+$app-primary-blue: $app-blue-color;
 $gray-light: #6d696e;
-$abb-input-label-gray: #696969;
+$app-input-label-gray: #696969;
+$app-light-gray: #c5c2c2;
 
 // alarm colors
 $alarm-clear: #2E8A2D;
@@ -31,7 +32,7 @@ $alarm-clear: #2E8A2D;
 $alarm-critical: #FF2401; //F03040: is the color of notifications error
 $alarm-warning: #d17103;
 $alarm-indeterminate: $gray-light;
-$alarm-info: $abb-blue-color;
+$alarm-info: $app-blue-color;
 
 // upload file placeHolder
 $upload-file-placeholder-background: #d17103;

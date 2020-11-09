@@ -16,14 +16,14 @@ export class LogsIconSeverityComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getSeverityIcon(): string {
+  getSeverityMatIcon(): string {
     if (this.severity === 'info') {
-      return 'abb/information-circle-1';
+      return 'info';
     }
     if (this.severity === 'warn') {
-      return 'abb/warning-circle-1';
+      return 'warning';
     }
-    return 'abb/error-circle-1';
+    return 'error';
   }
 
   getSeverityClass() {
