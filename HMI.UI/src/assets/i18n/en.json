@@ -20,7 +20,18 @@
 	},
 	"layout": {
 		"changePassword": "Change password",
-		"login": "Login",
+		"login-action": "Login",
+		"login": {
+			"changePasswordSuccess": "Change password success",
+			"confirmPassword": "Confirm password",
+			"errors": {
+				"mismatch": "Repeat same password"
+			},
+			"newPassword": "New password",
+			"password": "Password",
+			"title": "Title",
+			"user": "User"
+		},
 		"logout": "Logout",
 		"preferences": "Preferences"
 	},

@@ -1,4 +1,3 @@
-import { ValidationResult } from '@abb/abb-common-ux-angular-9';
 import { FormInputComponent } from '@abb/abb-common-ux-angular-9/lib/input/form-input/form-input.component';
 import {
   AfterViewInit,
@@ -34,6 +33,10 @@ import { FormHelper } from '@app/shared/utils/form.helper';
 import { AbstractControlOrT } from '@app/shared/utils/types';
 import { Subscription } from 'rxjs';
 
+export interface ValidationResult {
+  valid?: boolean;
+  text?: string;
+}
 
 interface FormGroupModel<T = unknown> {
   customInput: AbstractControlOrT<T, string>;
@@ -113,11 +116,6 @@ export class InputComponent implements OnInit, OnDestroy, OnChanges, AfterViewIn
 
   formGroup: FormGroup;
 
-  targetInputNativeElement: HTMLInputElement;
-
-  @ViewChild('abbInput') private abbInput: FormInputComponent;
-
-
   get formControls(): FormGroupModel<FormControl>  {
     return this.formGroup.controls as any;
   }
@@ -151,45 +149,6 @@ export class InputComponent implements OnInit, OnDestroy, OnChanges, AfterViewIn
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.disabled) {
       this.setDisabledState(changes.disabled.currentValue);
-    }
-  }
-
-  // ngDoCheck() {
-
-  //   // if (this.ngControl.name === 'K2') {
-  //   //   // useful for debugging;
-  //   //   console.table([
-  //   //     ['this.formControls.customInput.valid, value, errors', this.formControls.customInput.valid, this.formControls.customInput.value, this.formControls.customInput.errors],
-  //   //     ['this.formGroup.valid, value, errors', this.formGroup.valid, this.formGroup.value, this.formGroup.errors],
-  //   //     ['this.ngControl.valid, value, errors', this.ngControl.valid, this.ngControl.value, this.ngControl.errors],
-  //   //     ['this.errorValidationResult', this.errorValidationResult]
-  //   //   ]);
-  //   // }
-
-  //   // this.controlMarkAsTouchedParentAction();
-  //   // this.controlMarkAsPristineParentAction();
-  // }
-
-
-  /** Propagate 'MarkAsTouched' parent action to customControl */
-  private controlMarkAsTouchedParentAction() {
-    if (this.formGroup.touched) {
-      return;
-    }
-    if (this.ngControl.control.touched) {
-      this.formControls.customInput.markAsTouched();
-    }
-  }
-
-  /** Propagate 'MarkAsPristine' parent action to customControl */
-  private controlMarkAsPristineParentAction() {
-    console.log('this.formGroup.pristine', this.formGroup.pristine);
-    
-    if (this.formGroup.pristine) {
-      return;
-    }
-    if (this.ngControl.control.pristine) {
-      this.formControls.customInput.markAsPristine();
     }
   }
 
@@ -282,9 +241,6 @@ export class InputComponent implements OnInit, OnDestroy, OnChanges, AfterViewIn
   ngAfterViewInit(): void {
 
     // without timeout "AfterViewCheckChanged..." exception is thrown
-    setTimeout(() => {
-      this.targetInputNativeElement = this.abbInput.elRef.nativeElement.querySelector('input.inputElement'); 
-    });
 
   }
 

@@ -4,7 +4,6 @@ import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { DialogComponent } from '../component/dialog/dialog.component';
 import { ValidationResult } from '@abb/abb-common-ux-angular-9';
 
-
 interface FormHelperOptions {
   formGroup?: FormGroup;
   formControl?: FormControl;

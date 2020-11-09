@@ -1,6 +1,6 @@
 @import 'variables.scss';
 
-.abb-dialog-container {
+.app-dialog-container {
   mat-dialog-container.mat-dialog-container {
     border-radius: 0;
     padding: 0;
@@ -16,7 +16,7 @@
       align-items: center;
       padding-left: 32px;
     
-      abb-close-icon{
+      .close-icon{
         margin: 16px;
       }
     }
@@ -41,7 +41,7 @@
       margin-bottom: 0px;
       padding: 8px 16px;
   
-      abb-button {
+      button {
         margin-left: 16px;
       }
   

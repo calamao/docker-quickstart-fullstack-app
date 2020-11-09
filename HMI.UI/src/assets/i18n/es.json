@@ -20,7 +20,18 @@
 	},
 	"layout": {
 		"changePassword": null,
-		"login": null,
+		"login-action": null,
+		"login": {
+			"changePasswordSuccess": null,
+			"confirmPassword": null,
+			"errors": {
+				"mismatch": null
+			},
+			"newPassword": null,
+			"password": null,
+			"title": null,
+			"user": null
+		},
 		"logout": null,
 		"preferences": null
 	},

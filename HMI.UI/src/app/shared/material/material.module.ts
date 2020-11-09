@@ -1,3 +1,4 @@
+import { InputModule } from './../component/input/input.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 import {NgModule} from '@angular/core';
 // import {
@@ -52,6 +53,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatInputModule } from '@angular/material/input';
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
 // import { MatInputModule } from '@angular/material/input';
 
@@ -103,7 +105,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatFormFieldModule,
     // MatGridListModule,
     MatIconModule,
-    // MatInputModule,
+    MatInputModule,
     MatListModule,
     MatMenuModule,
     // MatNativeDateModule,

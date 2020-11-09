@@ -35,7 +35,7 @@ const defaultDialogConfig: Partial<MatDialogConfig> = {
   disableClose: true, // closes when click backdrop or 'ESC'
   autoFocus: false,
   width: '600px',
-  panelClass: 'abb-dialog-container',
+  panelClass: 'app-dialog-container',
   restoreFocus: false,
 };
 

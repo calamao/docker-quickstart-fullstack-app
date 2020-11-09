@@ -3,11 +3,11 @@
       <span
         class="mat-subheading-2 dialog-title"
       >{{data.title | translate}}</span>
+
+      <button mat-icon-button class="close-icon">
+        <mat-icon (click)="closeDialog()">close</mat-icon>
+      </button>
       
-      <abb-close-icon 
-        [sizeClass]="'large'"
-        (click)="closeDialog()"
-      ></abb-close-icon>
     </div>
   
     <mat-dialog-content class="dialog-content">
@@ -15,25 +15,14 @@
     </mat-dialog-content>
   
     <mat-dialog-actions class="dialog-actions">
-      <abb-button
-        [text]="data.buttonSecondaryText | translate"
-        [type]="'discreet-blue'"
+      <button mat-button
+        mat-raised-button
         (click)="closeDialog()"
-      ></abb-button>
-      <abb-button
-        [text]="data.buttonPrimaryText | translate"
-        [type]="'primary-blue'"
+      >{{data.buttonSecondaryText | translate}}</button>
+      <button mat-button
+        mat-raised-button
+        [color]="'primary'"
         (click)="okButton()"
-      ></abb-button>
+      >{{data.buttonPrimaryText | translate}}</button>
     </mat-dialog-actions>
   </div>
-  
-<!-- NATIVE ABB DIALOG COMPONENT -->
-<!-- <abb-dialog 
-  [closeable]="true"
-  [dimBackground]="true"
-  [closeOnLostFocus]="true"
-  [title]="'Title'"
->
-<p>Dialog content area</p>
-</abb-dialog> -->
