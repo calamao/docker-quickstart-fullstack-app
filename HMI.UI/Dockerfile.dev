@@ -9,7 +9,6 @@ RUN npm install
 
 COPY HMI.UI/package.json .
 COPY HMI.UI/package-lock.json .
-COPY HMI.UI/src/lib/abb/abb-common-ux-angular-9-0.8.1.tgz ./src/lib/abb/
 RUN npm install
 # copy the rest of files in the root (remember the 'src' folder is going to be mounted by a volume at runtime, for 'hot-reloading')
 COPY HMI.UI/*.* ./

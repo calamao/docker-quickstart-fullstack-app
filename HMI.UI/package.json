@@ -15,7 +15,6 @@
   },
   "private": true,
   "dependencies": {
-    "@abb/abb-common-ux-angular-9": "file:src/lib/abb/abb-common-ux-angular-9-0.8.1.tgz",
     "@angular/animations": "~10.1.2",
     "@angular/cdk": "^10.2.2",
     "@angular/common": "~10.1.2",

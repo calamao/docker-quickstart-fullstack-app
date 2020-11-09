@@ -2,7 +2,7 @@ import { Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import { DialogComponent } from '../component/dialog/dialog.component';
-import { ValidationResult } from '@abb/abb-common-ux-angular-9';
+import { ValidationResult } from '../component/input/input/input.component';
 
 interface FormHelperOptions {
   formGroup?: FormGroup;

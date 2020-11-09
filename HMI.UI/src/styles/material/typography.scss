@@ -1,11 +1,11 @@
 @import '~@angular/material/theming';
 
 /*
-UX: fonts for COSweb, Avenir, if not possible in the system, please add Helvetica before Arial.
+UX: fonts for App, Avenir, if not possible in the system, please add Helvetica before Arial.
 On this project related to font weights we’ll use: Avenir Roman, Medium, Black
 */
 
-$theme-font-family: ABBVoice, "Helvetica Neue", Arial;
+$theme-font-family: Roboto, "Helvetica Neue", Arial;
 
 // Avenir is defined by a @font-face in global/fonts
 // mat-typography-level(font-size, line-height, font-weight)

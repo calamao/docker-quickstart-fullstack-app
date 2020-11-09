@@ -1,6 +1,5 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { BlockUIModule } from 'ng-block-ui';
-import { ABBModule } from './abb/abb.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
@@ -15,7 +14,6 @@ import { SharedDirectivesModule } from './directives/directives.module';
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    ABBModule,
     TranslateModule,
     InputModule,
     SharedDirectivesModule,
@@ -25,7 +23,6 @@ import { SharedDirectivesModule } from './directives/directives.module';
     ReactiveFormsModule,
     TranslateModule,
     MaterialModule,
-    ABBModule,
     InputModule,
     TabsModule,
     SharedComponentsModule,

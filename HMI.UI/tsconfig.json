@@ -17,7 +17,6 @@
       "dom"
     ],
     "paths": {
-      "@abb/abb-common-ux-angular": ["node_modules/@abb/abb-common-ux-angular-9"], // This mapping is relative to "baseUrl"
       "@app/*": ["./src/app/*"],
     },
   }

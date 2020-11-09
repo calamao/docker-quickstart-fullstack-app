@@ -1,4 +1,3 @@
-import { FormInputComponent } from '@abb/abb-common-ux-angular-9/lib/input/form-input/form-input.component';
 import {
   AfterViewInit,
   Component,

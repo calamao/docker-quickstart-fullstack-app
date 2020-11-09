@@ -5,7 +5,6 @@ FROM node:12-alpine as build
 WORKDIR /app
 COPY HMI.UI/package.json .
 COPY HMI.UI/package-lock.json .
-COPY HMI.UI/src/lib/abb/abb-common-ux-angular-9-0.8.1.tgz ./src/lib/abb/
 RUN npm install
 # @angular/cli is already installed as a dependency
 # RUN npm install -g @angular/cli@10.1.2

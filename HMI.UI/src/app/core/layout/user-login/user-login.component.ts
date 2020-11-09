@@ -16,10 +16,10 @@ import {
   ValidatorFn,
 } from '@angular/forms';
 import { AbstractControlOrT } from '@app/shared/utils/types';
-import { ValidationResult } from '@abb/abb-common-ux-angular-9';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
 import { FormHelper } from '@app/shared/utils/form.helper';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ValidationResult } from '@app/shared/component/input/input/input.component';
 
 interface FormGroupModel<T = unknown> {
   userName: AbstractControlOrT<T, string>;

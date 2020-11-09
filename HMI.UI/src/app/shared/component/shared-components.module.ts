@@ -1,6 +1,5 @@
 import { ScrollableOverflowWrapperModule } from './scrollable-overflow-wrapper/scrollable-overflow-wrapper.module';
 import { SharedDirectivesModule } from './../directives/directives.module';
-import { ABBModule } from './../abb/abb.module';
 import { MaterialModule } from './../material/material.module';
 import { CommonModule } from '@angular/common';
 import { MenuModule } from './menu/menu.module';
@@ -21,7 +20,6 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     CommonModule,
     TranslateModule,
     MaterialModule,
-    ABBModule,
     InputModule,
     SharedDirectivesModule,
     ScrollableOverflowWrapperModule,

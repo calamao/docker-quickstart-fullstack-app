@@ -1,7 +1,6 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { InputComponent } from './input/input.component';
-import { ABBModule } from './../../abb/abb.module';
 import { MaterialModule } from './../../material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,7 +15,6 @@ import { NumericDirective } from './directives/numeric.directive';
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    ABBModule,
     TranslateModule,
   ],
   exports: [

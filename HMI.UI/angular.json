@@ -25,12 +25,7 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              {
-                "glob": "**/*",
-                "input": "./node_modules/@abb/abb-common-ux-angular-9/resources/",
-                "output": "/resources/"
-              }
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
