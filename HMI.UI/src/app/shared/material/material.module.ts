@@ -42,6 +42,11 @@ import {NgModule} from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
 // import { MatInputModule } from '@angular/material/input';
 
@@ -81,7 +86,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     // MatAutocompleteModule,
     // MatBadgeModule,
     // MatBottomSheetModule,
-    // MatButtonModule,
+    MatButtonModule,
     // MatButtonToggleModule,
     MatCardModule,
     // MatCheckboxModule,
@@ -92,9 +97,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     // MatExpansionModule,
     MatFormFieldModule,
     // MatGridListModule,
-    // MatIconModule,
+    MatIconModule,
     // MatInputModule,
-    // MatListModule,
+    MatListModule,
     // MatMenuModule,
     // MatNativeDateModule,
     // MatPaginatorModule,
@@ -103,7 +108,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     // MatRadioModule,
     // MatRippleModule,
     // MatSelectModule,
-    // MatSidenavModule,
+    MatSidenavModule,
     // MatSliderModule,
     // MatSlideToggleModule,
     // MatSnackBarModule,
@@ -111,7 +116,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     // MatStepperModule,
     // MatTableModule,
     // MatTabsModule,
-    // MatToolbarModule,
+    MatToolbarModule,
     // MatTooltipModule,
     // MatTreeModule,
   ]

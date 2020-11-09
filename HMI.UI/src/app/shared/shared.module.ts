@@ -7,7 +7,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MaterialModule } from './material/material.module';
 import { InputModule } from './component/input/input.module';
 import { TabsModule } from './component/tabs/tabs.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedComponentsModule } from './component/shared-components.module';
 import { SharedDirectivesModule } from './directives/directives.module';
 
@@ -19,7 +18,6 @@ import { SharedDirectivesModule } from './directives/directives.module';
     ABBModule,
     TranslateModule,
     InputModule,
-    FlexLayoutModule,
     SharedDirectivesModule,
     BlockUIModule,
   ],
@@ -30,7 +28,6 @@ import { SharedDirectivesModule } from './directives/directives.module';
     ABBModule,
     InputModule,
     TabsModule,
-    FlexLayoutModule,
     SharedComponentsModule,
     SharedDirectivesModule,
     BlockUIModule,
