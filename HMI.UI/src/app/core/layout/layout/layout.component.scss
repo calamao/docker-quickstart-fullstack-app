@@ -1,25 +1,15 @@
-@import 'variables.scss';
 
-/**
-This is a HACK!
-Should be removed once ABB fixes its bug in
-https://commonux.abb.com/angular-docs/components/SidebarNaviComponent.html#source
-which forces monochrome class in the component
-Notified (via email): 28.09.20
-*/
-::ng-deep:root abb-sidebar-navi-tile .light.monochrome.active:after {
-  background: $abb-primary-blue !important;
-}
+// mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+//   height: 100%;
+// }
+// mat-sidenav {
+//   width: 250px;
+// }
+// main {
+//   padding: 10px;
+// }
 
-// This avoids an ugly outline of the "user-agent" when the element is focussed and has a "routerLink" applied.
-abb-app-top-navi-item {
-  outline: 0;
-}
 
-abb-sidebar-navi-tile {
-  cursor: pointer;
-}
-
-.active-error{
-  color: $alarm-critical;
+.main-content-wrapper {
+  height: calc(100vh - 128px);
 }

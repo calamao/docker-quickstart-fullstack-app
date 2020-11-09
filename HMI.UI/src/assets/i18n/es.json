@@ -9,6 +9,8 @@
 			"confirm-action": null,
 			"title": null
 		},
+		"home": null,
+		"logs": null,
 		"messages": {
 			"executed-successful": null,
 			"general-error": null,

@@ -8,7 +8,6 @@ import { UserSelectorComponent } from './user-selector/user-selector.component';
 import { NgxPopperModule } from 'ngx-popper';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Layout2Component } from './layout2/layout2.component';
 
 @NgModule({
   imports: [
@@ -21,7 +20,7 @@ import { Layout2Component } from './layout2/layout2.component';
       // placement: 'bottom-start'
     }),
   ],
-  declarations: [LayoutComponent, LanguageSelectorComponent, UserSelectorComponent, UserLoginComponent, Layout2Component],
-  exports: [LayoutComponent, Layout2Component],
+  declarations: [LayoutComponent, LanguageSelectorComponent, UserSelectorComponent, UserLoginComponent],
+  exports: [LayoutComponent],
 })
 export class LayoutModule {}

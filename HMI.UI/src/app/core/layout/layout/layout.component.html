@@ -1,63 +1,39 @@
-<!-- Header bar with ABB Logo -->
-<abb-app-container>
-  <abb-bar [productName]="title"></abb-bar>
-  <abb-app-header>
-    <abb-app-header-spacer></abb-app-header-spacer>
-    <abb-app-top-navi>
-      <abb-app-top-navi-item 
-        [icon]="'abb/alarm-bell'"
-        [text]="getLastActiveLog()"
-        [ngClass]="{'active-error': getLastActiveLog()}"
-        (itemClick)="goToLogs()"
-        [routerLink]="routes.LOGS.BASE"
-        routerLinkActive 
-        #rlaLogs="routerLinkActive" 
-        [active]="rlaLogs.isActive"
-      ></abb-app-top-navi-item>
-      <app-language-selector></app-language-selector>
-      <abb-app-top-navi-divider></abb-app-top-navi-divider>
-      <app-user-selector></app-user-selector>
-    </abb-app-top-navi>
-    
-  </abb-app-header>
-  <!-- Just below the header bar -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1>Docker App</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="routes.ROBOT.BASE" routerLinkActive="mat-button-toggle-checked"> {{'base.home' | translate}} </a>
+      <a mat-button [routerLink]="routes.LOGS.BASE" routerLinkActive="mat-button-toggle-checked"> {{'base.logs' | translate}} </a>
+      <a mat-button [routerLink]="'/control'" routerLinkActive="mat-button-toggle-checked"> Control </a>
 
-  <abb-app-content>
-    <!-- Left pane -->
-    <abb-app-left-pane
-      [showVisibilityToggle]="false"
-      [visibility]="'compact'"
-      [title]="'left pane'"
-    >
-      <abb-sidebar-navi [monochrome]="false">
-        <abb-sidebar-navi-tile
-          [title]="'base.tabs.overview' | translate"
-          [routerLink]="routes.ROBOT.BASE" 
-          routerLinkActive 
-          #rlaRobot="routerLinkActive" 
-          [active]="rlaRobot.isActive"
-          (click)="sideBarItemStopPropagation($event)"
-          >
-          <abb-icon [name]="'abb/robot'" [sizeClass]="'large'"></abb-icon>
-        </abb-sidebar-navi-tile>
-        
-      </abb-sidebar-navi>
-    </abb-app-left-pane>
 
-    <!-- Content inside -->
-    <abb-app-main-content>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span style="font-size: 12px;">Bootstrap Web App with Docker, Angular, netCore API and SQLite stack</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+
+      <a mat-list-item [routerLink]="routes.ROBOT.BASE"> {{'base.home' | translate}} </a>
+      <a mat-list-item [routerLink]="routes.LOGS.BASE"> {{'base.logs' | translate}} </a>
+      <a mat-list-item [routerLink]="'/control'"> Control </a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="main-content-wrapper">
+
       <router-outlet></router-outlet>
-      
-      
-      <abb-notification-container
-        [notifications]="notifications"
-        [topPosition]="'80px'"
-      ></abb-notification-container>
-      
-    </abb-app-main-content>
-  </abb-app-content>
-
-
-</abb-app-container>
-
-
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

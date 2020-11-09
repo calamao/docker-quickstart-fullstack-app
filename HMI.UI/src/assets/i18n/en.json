@@ -9,6 +9,8 @@
 			"confirm-action": "Confirm",
 			"title": "Confirmation"
 		},
+		"home": "Home",
+		"logs": "Logs",
 		"messages": {
 			"executed-successful": "Executed successfully",
 			"general-error": "General error",
