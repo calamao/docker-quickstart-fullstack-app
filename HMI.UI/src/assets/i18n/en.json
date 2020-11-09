@@ -16,24 +16,11 @@
 			"general-error": "General error",
 			"pending-changes-confirmation": "Are you sure you want to leave without saving your changes?"
 		},
-		"tabs": {
-			"overview": "Overview"
-		},
 		"upload-file-here": "Upload file here"
 	},
 	"layout": {
 		"changePassword": "Change password",
-		"login": {
-			"changePasswordSuccess": "Password changed",
-			"confirmPassword": "Confirm password",
-			"errors": {
-				"mismatch": "Passwords do not match"
-			},
-			"newPassword": "New password",
-			"password": "Password",
-			"title": "Login",
-			"user": "User"
-		},
+		"login": "Login",
 		"logout": "Logout",
 		"preferences": "Preferences"
 	},

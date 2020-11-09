@@ -1,5 +1,4 @@
 import { SnackbarService, SnackBarType } from '@app/shared/services/snackbar.service';
-import { SnackbarService } from './../../../shared/services/snackbar.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from './../../services/user/user.service';
 import {

@@ -68,7 +68,8 @@ export class LanguageSelectorComponent implements OnInit {
     });
   }
 
-  selectedFlagSrc = () => flags[this.selectedFlag.localize].src;
+  selectedFlagSrc = () => this.selectedFlag && flags[this.selectedFlag.localize].src;
+  flagSrc = (flag: Flag) => flags[flag.localize].src;
 
   async selectFlag(flag: Flag) {
     this.selectedFlag = flag;

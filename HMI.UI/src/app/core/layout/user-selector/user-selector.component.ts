@@ -21,10 +21,6 @@ const isNotOperator = (user: User) => !isOperator(user);
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserSelectorComponent implements OnInit {
-  isOpen: boolean;
-
-  hasMenu$ = this.userService.currentUser$.pipe(map(isNotOperator));
-
   userName$ = this.userService.currentUser$.pipe(map((x) => x.name));
 
   constructor(
@@ -38,14 +34,9 @@ export class UserSelectorComponent implements OnInit {
 
   async clickMainItem() {
     this.userService.currentUser$.pipe(take(1)).subscribe((user) => {
-      if (user.role === Role.Operator) {
-        this.checkPendingChanges(() => {
-          this.openLoginDialog();
-        });
-      } else {
-        // open menu
-        this.isOpen = !this.isOpen;
-      }
+      this.checkPendingChanges(() => {
+        this.openLoginDialog();
+      });
     });
   }
 

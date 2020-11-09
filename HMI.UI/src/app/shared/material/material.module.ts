@@ -51,6 +51,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
 // import { MatInputModule } from '@angular/material/input';
 
@@ -104,7 +105,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     // MatInputModule,
     MatListModule,
-    // MatMenuModule,
+    MatMenuModule,
     // MatNativeDateModule,
     MatPaginatorModule,
     // MatProgressBarModule,

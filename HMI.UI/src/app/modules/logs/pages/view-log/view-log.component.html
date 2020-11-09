@@ -30,18 +30,17 @@
     </div>
 
     <div class="buttons">
-      <abb-button
-        [text]="'logs.show-logs' | translate"
-        [type]="'ghost'"
+      <button mat-button
+        mat-raised-button
         (click)="goToLogs()"
-      ></abb-button>
-      <abb-button
+      >{{'logs.show-logs' | translate}}</button>
+      <button mat-button
+        mat-raised-button
+        [color]="'primary'"
         *ngIf="selectedLog?.status === 'pending'"
         class="main-button"
-        [text]="'logs.acknowledge' | translate"
-        [type]="'primary-blue'"
         (click)="acknowledge(logId)"
-      ></abb-button>
+      >{{'logs.acknowledge' | translate}}</button>
     </div>
   </div>
 </div>

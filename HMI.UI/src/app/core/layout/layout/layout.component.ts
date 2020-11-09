@@ -1,3 +1,4 @@
+import { UserService } from '@app/core/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { APPRoutes } from '@app/core/constants/constants';
 
@@ -8,7 +9,14 @@ import { APPRoutes } from '@app/core/constants/constants';
 })
 export class LayoutComponent implements OnInit {
   routes = APPRoutes;
-  constructor() { }
+
+  get userName() {
+    return this.userService.currentUser?.name;
+  }
+
+  constructor(
+    private userService: UserService,
+  ) { }
 
   ngOnInit(): void {
   }

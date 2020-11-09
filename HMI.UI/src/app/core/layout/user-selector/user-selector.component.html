@@ -1,12 +1,32 @@
-<abb-app-top-navi-item
-  [text]="userName$ | async"
-  [hasMenu]="hasMenu$ | async"
-  (itemClick)="clickMainItem()"
+
+<button mat-button
+[matMenuTriggerFor]="menu"
 >
-  <abb-menu [isOpen]="isOpen" (lostFocus)="isOpen = false" (select)="isOpen = false" [onRight]="true">
-    <abb-menu-item [text]="'layout.changePassword' | translate" (click)="changePassword()"></abb-menu-item>
-    <abb-menu-item [text]="'layout.preferences' | translate"></abb-menu-item>
-    <abb-submenu-divider></abb-submenu-divider>
-    <abb-menu-item [text]="'layout.logout' | translate" (click)="logout()"></abb-menu-item>
-  </abb-menu>
-</abb-app-top-navi-item>
+  <mat-icon>account_box</mat-icon>
+  {{userName$ | async}}
+</button>
+<mat-menu #menu="matMenu" style="display: none">
+  <button
+    mat-menu-item
+    (click)="clickMainItem()"
+  >
+    {{ 'layout.login' | translate }}
+  </button>
+  <button
+    mat-menu-item
+    (click)="changePassword()"
+  >
+    {{ 'layout.changePassword' | translate }}
+  </button>
+  <button
+    mat-menu-item
+  >
+    {{ 'layout.preferences' | translate }}
+  </button>
+  <button
+    mat-menu-item
+    (click)="logout()"
+  >
+    {{ 'layout.logout' | translate }}
+  </button>
+</mat-menu>
