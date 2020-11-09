@@ -19,11 +19,6 @@ const flags = {
    es: { src: '/assets/images/flags/es.svg' },
 };
 
-const flagTemplate = src =>
-  `<div class="image-container">
-    <img src="${src}">
-  </div>`;
-
 @Component({
   selector: 'app-language-selector',
   templateUrl: './language-selector.component.html',
@@ -42,14 +37,7 @@ export class LanguageSelectorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.flags = Object.getOwnPropertyNames(flags).map(key => ({
-    //   name: key as FlagKey,
-    //   selected: this.selectedFlag === key,
-    //   template: flagTemplate(flags[key].src),
-    // }));
-
     this.loadLanguages();
-    
   }
 
   private async loadLanguages() {
@@ -59,7 +47,6 @@ export class LanguageSelectorComponent implements OnInit {
           id: lang.id,
           localize: lang.localization,
           selected: lang.isActive,
-          template: flagTemplate(flags[lang.localization].src),
         } as Flag;
       });
 
