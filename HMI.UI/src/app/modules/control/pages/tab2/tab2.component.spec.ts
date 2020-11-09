@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CollapsibleComponent } from './collapsible.component';
+import { Tab2Component } from './tab2.component';
 
-describe('CollapsibleComponent', () => {
-  let component: CollapsibleComponent;
-  let fixture: ComponentFixture<CollapsibleComponent>;
+describe('Tab2Component', () => {
+  let component: Tab2Component;
+  let fixture: ComponentFixture<Tab2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CollapsibleComponent ]
+      declarations: [ Tab2Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CollapsibleComponent);
+    fixture = TestBed.createComponent(Tab2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

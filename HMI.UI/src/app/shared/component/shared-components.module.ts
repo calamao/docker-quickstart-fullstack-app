@@ -10,8 +10,6 @@ import { OperationStatusComponent } from './operation-status/operation-status.co
 import { DialogComponent } from './dialog/dialog.component';
 import { AlertStatusIconComponent } from './alert-status-icon/alert-status-icon.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { CollapsibleComponent } from './collapsible/collapsible.component';
-import { CollapsibleTabDirective } from './collapsible/collapsible-tab.directive';
 import { InputModule } from './input/input.module';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
@@ -32,8 +30,6 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     DialogComponent,
     AlertStatusIconComponent,
     OperationStatusComponent,
-    CollapsibleComponent,
-    CollapsibleTabDirective,
     UploadFileComponent,
     ConfirmationComponent,
     SnackbarComponent,
@@ -41,8 +37,6 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
   exports: [
     MenuModule,
     OperationStatusComponent,
-    CollapsibleComponent,
-    CollapsibleTabDirective,
     InputModule,
     UploadFileComponent,
     VideoModule,

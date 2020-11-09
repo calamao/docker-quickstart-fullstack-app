@@ -1,5 +1,3 @@
-import { TabComponent } from '@abb/abb-common-ux-angular-9/lib/tabcontrol/tab/tab.component';
-import { TabcontrolComponent } from '@abb/abb-common-ux-angular-9/lib/tabcontrol/tabcontrol.component';
 import { Component, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -15,8 +13,6 @@ export interface Tab {
   styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit, AfterViewInit {
-  @ViewChild('tabControl') tabControl: TabcontrolComponent;
-
   @Input()
   tabs: Tab[] = [];
 
@@ -32,13 +28,13 @@ export class TabsComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
   }
 
-  tabClicked(event: {
-    activeTab: TabComponent;
-    activeTabIndex: number;
-    allTabs: TabComponent[];
-  }){
-    this.router.navigate([this.tabs[event.activeTabIndex].route], {relativeTo: this.activatedRoute});
-  }
+  // tabClicked(event: {
+  //   activeTab: TabComponent;
+  //   activeTabIndex: number;
+  //   allTabs: TabComponent[];
+  // }){
+  //   this.router.navigate([this.tabs[event.activeTabIndex].route], {relativeTo: this.activatedRoute});
+  // }
 
 
 

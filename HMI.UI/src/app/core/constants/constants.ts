@@ -19,6 +19,11 @@ export const APPRoutes = {
   LOGS: {
     BASE: 'logs',
   },
+  CONTROL: {
+    BASE: 'control',
+    STATUS: 'status',
+    TAB2: 'tab2',
+  },
 };
 
 

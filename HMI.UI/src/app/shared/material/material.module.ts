@@ -54,6 +54,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
 // import { MatInputModule } from '@angular/material/input';
 
@@ -122,7 +123,7 @@ import { MatInputModule } from '@angular/material/input';
     MatSortModule,
     // MatStepperModule,
     MatTableModule,
-    // MatTabsModule,
+    MatTabsModule,
     MatToolbarModule,
     // MatTooltipModule,
     // MatTreeModule,
