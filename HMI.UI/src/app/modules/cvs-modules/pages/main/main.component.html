@@ -1,0 +1,14 @@
+
+<ng-container *ngIf="tabs$ | async as tabs">
+  <ng-container *ngIf="forceResetComponent">
+    <app-tabs
+      [tabs]="tabs"
+    ></app-tabs>
+  </ng-container>
+</ng-container>
+<!-- 
+<ng-container *ngIf="forceResetComponent && tabs$ | async as tabs">
+  <app-tabs
+    [tabs]="tabs"
+  ></app-tabs>
+</ng-container> -->

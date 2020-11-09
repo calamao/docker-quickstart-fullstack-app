@@ -1,0 +1,12 @@
+<div class="parameter-block">
+  <p>{{parameterBlock.name}}</p>
+
+  <ng-container *ngFor="let parameter of parameterBlock.children">
+    <app-parameter-block *ngIf="parameter.isParameterBlock"
+      [parameterBlock]="parameter"
+    ></app-parameter-block>
+    <app-parameter-info *ngIf="parameter.isParameter"
+      [parameter]="parameter"
+    ></app-parameter-info>
+  </ng-container>
+</div>

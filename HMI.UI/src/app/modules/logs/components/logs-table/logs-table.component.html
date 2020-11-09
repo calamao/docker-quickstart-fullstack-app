@@ -1,0 +1,46 @@
+<abb-table
+  [sizeClass]="'large'"
+  [zebra]="true"
+  [borderType]="'normal'"
+  class="sticky-header"
+>
+  <thead>
+    <tr>
+      <th style="width: 150px;">{{'logs.code' | translate}}</th>
+      <th style="width: 150px;">{{'logs.module' | translate}}</th>
+      <th style="width: 150px;">{{'logs.date-time' | translate}}</th>
+      <th>{{'logs.title' | translate}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let el of elements" (click)="viewLog(el.id)" [ngClass]="{
+      pending: el.status === 'pending'
+    }">
+      <td>
+        <app-logs-icon-severity
+          [severity]="el.severity"
+        ></app-logs-icon-severity>
+        {{el.code}}
+      </td>
+      <td>{{el.module}}</td>
+      <td>{{el.time | date}}</td>
+      <td>{{el.title}}</td>
+    </tr>
+  </tbody>
+</abb-table>
+<div class="footer">
+  <div class="buttons">
+    <abb-button
+        [text]="'logs.acknowledge-all' | translate"
+        [type]="'primary-blue'"
+        (click)="acknowledgeAll()"
+      ></abb-button>
+  </div>
+  <abb-pagination
+    (currentPageChange)="currentPageChange($event)"
+    [currentPage]="currentPage"
+    [currentPageSize]="currentPageSize"
+    [rowCount]="totalElements"
+  ></abb-pagination>
+</div>
+

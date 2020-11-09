@@ -1,0 +1,12 @@
+<form 
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit()">
+
+  <app-input
+    [dataType]="'text'"
+    [label]="'cvs-modules.sensor.sensor-name' | translate"
+    [required]="true"
+    [formControlName]="'sensorName'"
+  ></app-input>
+
+</form>

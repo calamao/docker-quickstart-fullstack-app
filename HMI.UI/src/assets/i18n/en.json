@@ -1,0 +1,134 @@
+{
+	"base": {
+		"action": {
+			"auto": "Auto",
+			"cancel": "Cancel",
+			"ok": "Ok",
+			"save": "Save",
+			"upload-file": "Upload file"
+		},
+		"confirmation": {
+			"confirm-action": "Confirm",
+			"title": "Confirmation"
+		},
+		"height": "Height",
+		"messages": {
+			"executed-successful": "Executed successfully",
+			"general-error": "General error",
+			"pending-changes-confirmation": "Are you sure you want to leave without saving your changes?"
+		},
+		"rotations": "Rotations",
+		"step": "step",
+		"tabs": {
+			"module-overview": "Module overview",
+			"operation-manager": "Operation manager",
+			"overview": "Overview",
+			"parameter-editor": "Parameter editor",
+			"sensor": "Sensor"
+		},
+		"translations": "Translations",
+		"type": "Type",
+		"width": "Width"
+	},
+	"cvs-modules": {
+		"operation-manager": {
+			"cam": {
+				"exposure-time": "Exposure time",
+				"region-of-interest": "Region of interest",
+				"title": "Camera"
+			},
+			"create-operation": "Create operation",
+			"delete-operation": "Delete operation",
+			"messages": {
+				"confirm-delete-operation": "Confirm you want to delete the operation"
+			},
+			"natural-feature-operation": "Natural feature",
+			"operation-name": "Operation name",
+			"operation-type": "Operation type",
+			"steps": {
+				"title": "Steps"
+			},
+			"tag-operation": "Tag",
+			"target": {
+				"3D-model": "3D Model",
+				"init-pose-menu": "Init pose menu",
+				"init-target-tool-menu": "Init target tool menu",
+				"lineSearchLenght": "lineSearchLenght",
+				"lineSearchLenghtInitRelative": "lineSearchLenghtInitRelative",
+				"minInlierRatio": "minInlierRatio",
+				"minInlierRatioInit": "minInlierRatioInit",
+				"minInlierRatioTraking": "minInlierRatioTraking",
+				"tag-size": "Tag size",
+				"title": "Target",
+				"try-matching": "Try matching",
+				"upload-3DModel": "Upload 3D model"
+			}
+		},
+		"parameter-editor": {
+			"modified-parameters": "Modified parameters:"
+		},
+		"sensor": {
+			"calibration": {
+				"check-calibration": "Check calibration",
+				"chessboard-size": "Chessboard size",
+				"clear-reference": "Clear reference",
+				"exposure-time": "Exposure time",
+				"recalculate": "Recalculate",
+				"recalculation-needed": "Recalculation needed",
+				"set-reference": "Set reference",
+				"square-size": "Square size"
+			},
+			"check-calibration": "Check calibration",
+			"create-sensor": "Create sensor",
+			"delete-sensor": "Delete sensor",
+			"extrinsic-calibration": "Extrinsic calibration",
+			"main-config": {
+				"intrinsic-calibration": "Intrinsic calibration",
+				"label": "Label",
+				"title": "Main config",
+				"upload-file-here": "Drag file here"
+			},
+			"messages": {
+				"confirm-delete-sensor": "Confirm you want to delete the sensor"
+			},
+			"sensor-name": "Sensor name"
+		}
+	},
+	"layout": {
+		"changePassword": "Change password",
+		"login": {
+			"changePasswordSuccess": "Password changed",
+			"confirmPassword": "Confirm password",
+			"errors": {
+				"mismatch": "Passwords do not match"
+			},
+			"newPassword": "New password",
+			"password": "Password",
+			"title": "Login",
+			"user": "User"
+		},
+		"logout": "Logout",
+		"preferences": "Preferences"
+	},
+	"logs": {
+		"acknowledge": "Acknowledge",
+		"acknowledge-all": "Acknowledge all",
+		"actions": "Actions",
+		"code": "Code",
+		"date-time": "Date & time",
+		"description": "Description",
+		"module": "Module",
+		"show-logs": "Show logs",
+		"title": "Title"
+	},
+	"overview": {
+		"CVG-operation": "CVG operation",
+		"UVT-operation": "UVT operation",
+		"idle": "Idle",
+		"linked": "Linked",
+		"ready": "Ready",
+		"resetting": "Resetting",
+		"searching": "Searching",
+		"synching": "Synching"
+	}
+}

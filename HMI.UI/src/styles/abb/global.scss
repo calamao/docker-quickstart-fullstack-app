@@ -1,0 +1,97 @@
+/****************************************************/
+/* Coppied from                                     */
+/* https://commonux.abb.com/styles/styles1.css      */
+/****************************************************/
+
+/****************************************************/
+/* Generic, minimal browser reset                   */
+/****************************************************/
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+section {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/****************************************************/
+/* Minimal ABB branding styles                      */
+/****************************************************/
+@font-face {
+  font-family: ABBVoice-light;
+  src: url('/resources/fonts/ABBVoice/ABBvoice_W_Lt.eot'); /* IE9 Compat Modes */
+  src: url('/resources/fonts/ABBVoice/ABBvoice_W_Lt.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/resources/fonts/ABBVoice/ABBvoice_W_Lt.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/resources/fonts/ABBVoice/ABBvoice_W_Lt.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('/resources/fonts/ABBVoice/ABBvoice_W_Lt.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('/resources/fonts/ABBVoice/ABBvoice_W_Lt.svg#svgFontName') format('svg'); /* Legacy iOS */
+
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: ABBVoice;
+  src: url('/resources/fonts/ABBVoice/ABBvoice_W_Rg.eot'); /* IE9 Compat Modes */
+  src: url('/resources/fonts/ABBVoice/ABBvoice_W_Rg.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/resources/fonts/ABBVoice/ABBvoice_W_Rg.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/resources/fonts/ABBVoice/ABBvoice_W_Rg.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('/resources/fonts/ABBVoice/ABBvoice_W_Rg.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('/resources/fonts/ABBVoice/ABBvoice_W_Rg.svg#svgFontName') format('svg'); /* Legacy iOS */
+
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: ABBVoice-medium;
+  src: url('/resources/fonts/ABBVoice/ABBvoice_W_Md.eot'); /* IE9 Compat Modes */
+  src: url('/resources/fonts/ABBVoice/ABBvoice_W_Md.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/resources/fonts/ABBVoice/ABBvoice_W_Md.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/resources/fonts/ABBVoice/ABBvoice_W_Md.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('/resources/fonts/ABBVoice/ABBvoice_W_Md.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('/resources/fonts/ABBVoice/ABBvoice_W_Md.svg#svgFontName') format('svg'); /* Legacy iOS */
+
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: ABBVoice-bold;
+  src: url('/resources/fonts/ABBVoice/ABBvoice_W_Bd.eot'); /* IE9 Compat Modes */
+  src: url('/resources/fonts/ABBVoice/ABBvoice_W_Bd.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/resources/fonts/ABBVoice/ABBvoice_W_Bd.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/resources/fonts/ABBVoice/ABBvoice_W_Bd.woff') format('woff'),
+    /* Pretty Modern Browsers */ url('/resources/fonts/ABBVoice/ABBvoice_W_Bd.ttf') format('truetype'),
+    /* Safari, Android, iOS */ url('/resources/fonts/ABBVoice/ABBvoice_W_Bd.svg#svgFontName') format('svg'); /* Legacy iOS */
+
+  font-weight: 700;
+  font-style: normal;
+}
+html {
+  font-family: 'ABBvoice', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7;
+  height: 100%;
+  font-size: 100%;
+}

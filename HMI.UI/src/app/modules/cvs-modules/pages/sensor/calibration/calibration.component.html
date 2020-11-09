@@ -1,0 +1,95 @@
+<form
+  class="main-container"
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit()"
+  *blockUI="'main-config'"
+>
+  <div class="inputs">
+    <table>
+      <tr>
+        <td>
+          <app-input
+            [label]="'cvs-modules.sensor.calibration.exposure-time' | translate"
+            [dataType]="'number'"
+            [formControlName]="'exposureTime'"
+            [hideValidationContainer]="true"
+            [min]="0"
+          ></app-input>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <span class="label">{{
+            "cvs-modules.sensor.calibration.chessboard-size" | translate
+          }}</span>
+          <div class="chessboard-fields">
+            <app-input
+              [dataType]="'number'"
+              [formControlName]="'chessboardWidth'"
+              [hideValidationContainer]="true"
+              [min]="0"
+            ></app-input>
+            <span class="cross">X</span>
+            <app-input
+              [dataType]="'number'"
+              [formControlName]="'chessboardHeight'"
+              [hideValidationContainer]="true"
+              [min]="0"
+            ></app-input>
+          </div>
+        </td>
+        <td class="right-column">
+          <app-input
+            [label]="'cvs-modules.sensor.calibration.square-size' | translate"
+            [dataType]="'number'"
+            [formControlName]="'squareSize'"
+            [hideValidationContainer]="true"
+            [decimals]="2"
+            [min]="0"
+          ></app-input>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="buttons">
+    <table>
+      <tr>
+        <td>
+          <abb-button
+            [disabled]="disableAll || disableSetReference"
+            [text]="'cvs-modules.sensor.calibration.set-reference' | translate"
+            [type]="'primary-blue'"
+            (click)="onSubmit()"
+            [isLoading]="setReferenceInProcess"
+          ></abb-button>
+        </td>
+        <td class="right">
+          <abb-button
+            [disabled]="disableAll || disableCheckCalibration"
+            [text]="'cvs-modules.sensor.calibration.check-calibration' | translate"
+            (click)="checkCalibration()"
+            [isLoading]="checkCalibrationInProcess"
+          ></abb-button>
+        </td>
+      </tr>
+      <tr>
+        <td class="bottom">
+          <abb-button
+            [disabled]="disableAll || disableClearReference"
+            [text]="'cvs-modules.sensor.calibration.clear-reference' | translate"
+            (click)="clearReference()"
+          ></abb-button>
+        </td>
+        <td class="bottom right">
+          <abb-button
+            [disabled]="disableAll || disableRecalculate"
+            [text]="'cvs-modules.sensor.calibration.recalculate' | translate"
+            (click)="recalculate()"
+          ></abb-button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</form>

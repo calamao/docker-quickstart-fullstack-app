@@ -1,0 +1,69 @@
+@import 'variables.scss';
+
+.main-container {
+  display: flex;
+  height: 100%;
+
+  .operation-manager {
+    display: flex;
+    &.d-none {
+      display: none;
+    }
+    min-height: 100%;
+    width: 100%;
+
+    .col {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .video-container {
+    position: relative;
+    .take-picture {
+      position: absolute;
+      bottom: 0;
+      margin: 20px;
+
+      abb-button {
+        &:first-child {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  .full-content {
+    min-height: 100%;
+    width: 100%;
+  }
+}
+
+.sensor-selector {
+  display: flex;
+  & > :first-child {
+    flex: 1;
+  }
+
+  .add-sensor-icon {
+    margin-left: 20px;
+  }
+}
+
+.camera-icon {
+  color: green;
+  &.error {
+    color: red;
+  }
+}
+
+.status-container {
+  flex-grow: 1;
+  margin-left: 40px;
+}
+
+.delete-block {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}

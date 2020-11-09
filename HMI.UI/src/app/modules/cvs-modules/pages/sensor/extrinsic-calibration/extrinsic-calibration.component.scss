@@ -1,0 +1,19 @@
+
+
+.cal-box {
+  width: 300px;
+  min-height: 30px;
+  border: 1px solid black;
+  background: white;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+
+  td.label {
+    padding-top: 8px;
+    vertical-align: top;
+  }
+  td.input {
+    padding-left: 20px;
+  }
+}

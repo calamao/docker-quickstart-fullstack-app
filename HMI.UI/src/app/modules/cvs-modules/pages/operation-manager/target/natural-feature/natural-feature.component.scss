@@ -1,0 +1,31 @@
+@import 'variables.scss';
+
+.column {
+  max-width: $input-max-width;
+}
+
+.model-selector {
+  display: flex;
+  & > :first-child {
+    flex: 1;
+  }
+
+  .add-model-icon {
+    margin-left: 20px;
+    align-self: center;
+  }
+}
+
+form {
+  // just for the 'upload-file-hint' to look nice
+  position: relative;
+}
+
+.extra-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  &>* {
+    padding-left: 20px;
+  }
+}

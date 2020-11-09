@@ -1,0 +1,49 @@
+<abb-tabcontrol
+  #tabControl
+  [type]="'primary'"
+  (tabChange)="tabClicked($event)"
+  [contentClassName]="'tabs-content'"
+>
+  <abb-tab
+    style="display: none;"
+    #abbTab
+    *ngFor="let tab of tabs"
+    [title]="tab.title | translate"
+    [routerLink]="tab.route" 
+    routerLinkActive 
+    #rlaTab="routerLinkActive" 
+    [active]="rlaTab.isActive"
+    [ngClass]="{'active-tab': rlaTab.isActive}"
+  >
+    <!-- The *ngIf is important: otherwise due to how this component works all the contents would be "painted in the DOM"
+        This would cause many 'router-outlet' to be "painted" and only the "last one" would be updated by the route change. -->
+    <!-- <div class="app-tab-content" *ngIf="abbTab.active">
+      <router-outlet></router-outlet>
+    </div> -->
+
+    <!--
+      PREVIOUS SOLUTION HAD ANOTHER ISSUE:
+      ngIf + router-outlet is a bit buggy
+      the 'canDeactivate' method was called with a 'component = null' breaking the "pendingChanges" functionality.
+      
+      See some other people with the same issue:
+      https://github.com/angular/angular/issues/16868#issuecomment-339812796
+     -->
+
+     
+
+  </abb-tab>
+</abb-tabcontrol>
+
+<!-- <app-scrollable-overflow-wrapper>
+  <router-outlet></router-outlet>
+</app-scrollable-overflow-wrapper> -->
+
+<div class="tab-container-content">
+  <!--
+    The CURRENT SOLUTION is to render a single router-outlet and "hide" the tabs-content elements (which do not render anything)
+    All the content is managed through a single router outlet. The tabs only stay as "buttons to be clicked" and change the route.
+  -->
+  <router-outlet></router-outlet>
+</div>
+

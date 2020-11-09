@@ -1,0 +1,13 @@
+@import 'variables.scss';
+
+.parameter-block {
+  border: 1px solid black;
+  // margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+app-parameter-info {
+  max-width: $input-max-width;
+  display: block;
+}

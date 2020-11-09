@@ -1,0 +1,12 @@
+<abb-app-top-navi-item
+  [text]="userName$ | async"
+  [hasMenu]="hasMenu$ | async"
+  (itemClick)="clickMainItem()"
+>
+  <abb-menu [isOpen]="isOpen" (lostFocus)="isOpen = false" (select)="isOpen = false" [onRight]="true">
+    <abb-menu-item [text]="'layout.changePassword' | translate" (click)="changePassword()"></abb-menu-item>
+    <abb-menu-item [text]="'layout.preferences' | translate"></abb-menu-item>
+    <abb-submenu-divider></abb-submenu-divider>
+    <abb-menu-item [text]="'layout.logout' | translate" (click)="logout()"></abb-menu-item>
+  </abb-menu>
+</abb-app-top-navi-item>

@@ -1,0 +1,37 @@
+
+// styled globaly in a global css file
+// .app-tab-content {
+//   min-height: 100%;
+// }
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+abb-tabcontrol ::ng-deep {
+  display: inline;
+
+  .tabs-content {
+    display: none;
+  }
+}
+
+.tab-container-content ::ng-deep {
+  flex: 1;
+  padding: 35px;
+  background-color: white;
+  overflow: auto;
+
+  /** sorry 😢: I could not find other workaround to show the scroll when overflow (Parameter editor content mainly)
+    The rest of tabs are ready to scroll inside through the same trick in the collapsible content wrapper.
+  */
+  height: calc(100vh - 200px);
+
+  display: flex;
+
+  // sibling of router-outlet (parent of the rendered component for the route)
+  & > *:last-child {
+    width: 100%;
+  }
+}

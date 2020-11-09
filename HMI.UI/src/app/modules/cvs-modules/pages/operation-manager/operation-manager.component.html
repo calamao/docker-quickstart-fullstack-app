@@ -1,0 +1,116 @@
+<div class="main-container">
+  <div 
+    [ngClass]="{
+      'd-none': !targetVisualizerService.showMainOperationManager
+    }"
+    class="operation-manager">
+    <div class="col">
+      <div class="sensor-selector">
+        <abb-dropdown
+          (selectedChange)="operationChanged($event)"
+          [placeholder]="'Sensor selector...'"
+          [selected]="componentSelectedItem"
+        >
+          <abb-dropdown-option *ngFor="let operation of operations"
+            [label]="operation.name"
+            [value]="operation.id"
+          >
+          </abb-dropdown-option>
+        </abb-dropdown>
+        <abb-button 
+          class="add-sensor-icon" 
+          [icon]="'abb/plus'" 
+          (click)="createNewOperation()" 
+          title="{{'cvs-modules.operation-manager.create-operation' | translate}}">
+        </abb-button>
+      </div>
+      
+  
+      <div class="video-container">
+        <app-video
+          #video
+          [showPoster]="true"
+          [showCarVideo]="true"
+          [showAPIVideo]="false"
+          [showControls]="false"
+        ></app-video>
+
+        <div class="take-picture" [ngClass]="{'d-none': !stepsService.showSteps}">
+          <abb-button
+            [icon]="'abb/camera'" 
+            [sizeClass]="'large'"
+            [type]="'normal'"
+            (click)="takePicture()"
+          ></abb-button>
+
+          <abb-button
+            *ngIf="stepsService.selectedImage$ | async"
+            [icon]="'abb/refresh'" 
+            [sizeClass]="'large'"
+            [type]="'normal'"
+            (click)="updatePicture()"
+          ></abb-button>
+          
+        </div>
+      </div>
+      <div class="delete-block">
+        <abb-button
+          *ngIf="selectedOperation"
+          [text]="'cvs-modules.operation-manager.delete-operation' | translate"
+          [icon]="'abb/trash'"
+          [type]="'normal'"
+          (click)="deleteOperation()"
+        ></abb-button>
+      </div>
+    </div>
+    
+    <div *ngIf="selectedOperation" class="status-container">
+      <app-collapsible
+        (selectedItems)="collapsibleSelectedChange($event)"
+      >
+        <ng-template app-collapsible-tab [itemId]="collapsibleIds.cam"
+          [title]="'cvs-modules.operation-manager.cam.title' | translate"
+          [icon]="'abb/settings'"
+        >
+          <app-camera
+            #cameraComponent
+            *ngIf="forceResetWhenChangedOperation"
+            [operationId]="selectedOperation.id"
+          ></app-camera>
+        </ng-template>
+        <ng-template app-collapsible-tab [itemId]="collapsibleIds.target"
+          [title]="'cvs-modules.operation-manager.target.title' | translate"
+          [icon]="'abb/settings'"
+        >
+          <app-target
+            *ngIf="forceResetWhenChangedOperation"
+            [operationId]="selectedOperation.id"
+          ></app-target>
+        </ng-template>
+        <ng-template app-collapsible-tab [itemId]="collapsibleIds.steps"
+          [title]="'cvs-modules.operation-manager.steps.title' | translate"
+          [icon]="'abb/settings'"
+        >
+          <app-steps
+            *ngIf="forceResetWhenChangedOperation"
+            [operationId]="selectedOperation.id"
+          ></app-steps>
+        </ng-template>
+      </app-collapsible>
+  
+    </div>
+  </div>
+
+  <div 
+    *ngIf="targetVisualizerService.showTargetToolMenu"
+    class="full-content">
+    <app-target-tool-menu></app-target-tool-menu>
+  </div>
+
+  <div 
+    *ngIf="targetVisualizerService.showTargetPoseMenu"
+    class="full-content">
+    <app-target-pose-menu></app-target-pose-menu>
+  </div>
+  
+</div>

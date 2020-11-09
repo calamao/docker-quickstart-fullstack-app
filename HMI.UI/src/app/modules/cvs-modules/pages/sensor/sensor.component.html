@@ -1,0 +1,84 @@
+<div class="main-container">
+  <div class="col">
+    <div class="sensor-selector">
+      <abb-dropdown
+        (selectedChange)="sensorChanged($event)"
+        [placeholder]="'Sensor selector...'"
+        [selected]="componentSelectedItem"
+      >
+        <abb-dropdown-option *ngFor="let sensor of sensors"
+          [label]="sensor.name"
+          [value]="sensor.id"
+        >
+          <ng-template abbDropdownItem>
+            <abb-icon class="camera-icon" [name]="
+              sensor.state !== 'disabled' ? 'abb/video-camera-on' : 'abb/disconnect'
+            " 
+            [sizeClass]="'large'" 
+            [ngClass]="{
+              'error': sensor.state === 'error',
+              'disabled': sensor.state === 'disabled'
+            }"></abb-icon>  
+            
+
+            <span>{{sensor.name}}</span>
+          </ng-template>
+        </abb-dropdown-option>
+ 
+      </abb-dropdown>
+      <abb-button 
+        class="add-sensor-icon" 
+        [icon]="'abb/plus'" 
+        (click)="createNewSensor()" 
+        title="{{'cvs-modules.sensor.create-sensor' | translate}}">
+      </abb-button>
+    </div>
+    
+
+    <div class="video-container">
+      <app-video></app-video>
+    </div>
+    <div class="delete-block">
+      <abb-button
+        *ngIf="selectedSensor"
+        [text]="'cvs-modules.sensor.delete-sensor' | translate"
+        [icon]="'abb/trash'"
+        [type]="'normal'"
+        (click)="deleteSensor()"
+      ></abb-button>
+    </div>
+  </div>
+  
+  <div *ngIf="selectedSensor" class="status-container">
+    <app-collapsible>
+      <ng-template app-collapsible-tab
+        [title]="'cvs-modules.sensor.main-config.title' | translate"
+        [icon]="'abb/settings'"
+      >
+        <app-main-config
+          *ngIf="forceResetWhenChangedSensor"
+          [sensorId]="selectedSensor.id"
+        ></app-main-config>
+      </ng-template>
+      <ng-template app-collapsible-tab
+        [title]="'cvs-modules.sensor.extrinsic-calibration' | translate"
+        [icon]="'abb/settings'"
+      >
+        <app-extrinsic-calibration
+          *ngIf="forceResetWhenChangedSensor"
+          [sensorId]="selectedSensor.id"
+        ></app-extrinsic-calibration>
+      </ng-template>
+      <ng-template app-collapsible-tab
+        [title]="'cvs-modules.sensor.check-calibration' | translate"
+        [icon]="'abb/settings'"
+      >
+        <app-calibration
+          *ngIf="forceResetWhenChangedSensor"
+          [sensorId]="selectedSensor.id"
+        ></app-calibration>
+      </ng-template>
+    </app-collapsible>
+
+  </div>
+</div>

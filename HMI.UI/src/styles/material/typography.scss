@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+
+/*
+UX: fonts for COSweb, Avenir, if not possible in the system, please add Helvetica before Arial.
+On this project related to font weights we’ll use: Avenir Roman, Medium, Black
+*/
+
+$theme-font-family: ABBVoice, "Helvetica Neue", Arial;
+
+// Avenir is defined by a @font-face in global/fonts
+// mat-typography-level(font-size, line-height, font-weight)
+$custom-typography: mat-typography-config(
+  $font-family: $theme-font-family,
+  $display-4:     mat-typography-level(112px, 112px, 300),
+  $display-3:     mat-typography-level(56px, 56px, 300),
+  $display-2:     mat-typography-level(45px, 48px, 300),
+  $display-1:     mat-typography-level(34px, 40px, 300),
+  $headline:      mat-typography-level(24px, 32px, 700),
+  $title:         mat-typography-level(20px, 22px, 700),
+  $subheading-2:  mat-typography-level(18px, 22px, 400),
+  $subheading-1:  mat-typography-level(18px, 22px, 700),
+  $body-2:        mat-typography-level(16px, 20px, 300),
+  $body-1:        mat-typography-level(15px, 20px, 300),
+  $caption:       mat-typography-level(13px, 20px, 300),
+  $button:        mat-typography-level(15px, 18px, 400),
+  // Line-height must be unit-less fraction of the font-size.
+  $input:         mat-typography-level(inherit, 1.125, 300)
+);
+

@@ -1,0 +1,55 @@
+<div class="move-controls">
+  <div class="axis">
+
+    <abb-toggle-button-group [selected]="moveType" (change)="setMoveType($event)" [sizeClass]="'large'">
+      <abb-toggle-button [icon]="'abb/jog-linear'" [value]="'translate'" [title]="'base.translations' | translate"></abb-toggle-button>
+      <abb-toggle-button [icon]="'abb/turn-clockwise'" [value]="'rotate'" [title]="'base.rotations' | translate"></abb-toggle-button>
+    </abb-toggle-button-group>
+    
+  </div>
+  <div class="move-buttons">
+    <div class="translations move-block">
+      <p>X</p>
+      
+      <abb-button 
+        [text]="'-'"
+        [sizeClass]="'large'"
+        (click)="move('decrement', 'X')">
+      </abb-button>
+      <abb-button 
+        [text]="'+'"
+        [sizeClass]="'large'"
+        (click)="move('increment', 'X')">
+      </abb-button>
+    </div>
+    <div class="rotations move-block">
+      <p>Y</p>
+      
+      <abb-button 
+        [text]="'-'"
+        [sizeClass]="'large'"
+        (click)="move('decrement', 'Y')">
+      </abb-button>
+      <abb-button 
+        [text]="'+'"
+        [sizeClass]="'large'"
+        (click)="move('increment', 'Y')">
+      </abb-button>
+    </div>
+    <div class="rotations move-block">
+      <p>Z</p>
+      
+      <abb-button 
+        [text]="'-'"
+        [sizeClass]="'large'"
+        (click)="move('decrement', 'Z')">
+      </abb-button>
+      <abb-button 
+        [text]="'+'"
+        [sizeClass]="'large'"
+        (click)="move('increment', 'Z')">
+      </abb-button>
+    </div>
+  </div>
+  
+</div>

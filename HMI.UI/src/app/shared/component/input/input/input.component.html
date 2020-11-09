@@ -1,0 +1,25 @@
+<ng-container [formGroup]="formGroup">
+  <abb-form-input
+    #abbInput
+    [dataType]="dataType"
+    [label]="label"
+    [required]="required"
+    [formControlName]="'customInput'"
+    [suppressNgControlErrors]="true"
+    [externalValidationResult]="errorValidationResult"
+    [showValidationIconWhenInvalid]="errorValidationResult"
+    [type]="discreet ? 'discreet' : 'normal'"
+    [hideValidationContainer]="hideValidationContainer"
+    [step]="calculatedStep"
+    [placeholder]="calculatedPlaceHolder"
+    [min]="min?.toString()"
+    [max]="max?.toString()"
+  ></abb-form-input>
+</ng-container>
+
+<!-- min?.toString() this is needed for the '0' case which is not well treated as a number internally -->
+<!-- Numberic Directive (seems its not needed with the 'step' attribute) -->
+<!-- appNumeric
+    [appNumericEnabled]="dataType == 'number'"
+    [decimals]="decimals"
+    [appNumericTargetNativeElement]="targetInputNativeElement" -->

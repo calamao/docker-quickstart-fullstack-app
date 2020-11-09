@@ -1,0 +1,74 @@
+
+
+
+<div class="main-container">
+  <div class="col">
+    <div class="video-container">
+      <app-video></app-video>
+    </div>
+
+    <div class="helper-image">
+      <img src="/assets/images/target-tool-menu-translation-rotation-axis.png">
+    </div>
+  </div>
+  
+  <div class="target-tool-container">
+    <app-tool-move-panel
+      (moveAction)="move($event)"
+    ></app-tool-move-panel>
+    
+
+
+    <!-- <app-model-viewer
+      (cameraChangeThrottled$)="cameraChange($event)"
+    ></app-model-viewer>
+
+    <p class="mat-subheading-1" style="text-align: center; margin-top: 20px;">{{cameraOrbitFormatted}}</p> -->
+
+    <div class="slider">
+      <!-- <span class="slider-value">Value...: {{minInlinerRatioSlider.value}}</span> -->
+      <abb-slider 
+        [min]="0"
+        [max]="1"
+        [step]="0.01"
+        [value]="minInlierRatio"
+        (valueChange)="minInlierRatioChange($event)"
+        [label]="('cvs-modules.operation-manager.target.minInlierRatio' | translate) + ': ' + minInlierRatio"></abb-slider>
+    </div>
+    <div class="slider">
+      <!-- <span class="slider-value">Value...: {{minInlinerRatioSlider.value}}</span> -->
+      <abb-slider 
+        [min]="0"
+        [max]="1"
+        [step]="0.01"
+        [value]="lineSearchLength"
+        (valueChange)="lineSearchLengthChange($event)"
+        [label]="('cvs-modules.operation-manager.target.lineSearchLenght' | translate) + ': ' + lineSearchLength"></abb-slider>
+    </div>
+    <div>
+      <abb-toggle-switch
+        [label]="'cvs-modules.operation-manager.target.try-matching' | translate"
+        [value]="tryMatching"
+        (change)="tryMatchingChange($event)"
+        [showIcons]="false"
+      >
+      </abb-toggle-switch>
+    </div>
+    <div class="buttons">
+      <abb-button
+      [icon]="'abb/save'"
+      [text]="'base.action.save' | translate"
+        [type]="'primary-blue'"
+        (click)="onSubmit()"
+      ></abb-button>
+      <abb-button
+        [text]="'base.action.cancel' | translate"
+        [type]="'normal'"
+        (click)="exit()"
+      ></abb-button>
+    </div>
+  </div>
+
+  
+
+</div>

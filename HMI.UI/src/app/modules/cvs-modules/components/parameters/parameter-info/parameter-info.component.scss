@@ -1,0 +1,8 @@
+
+.parameter {
+  &.is-dirty ::ng-deep {
+    .label {
+      font-weight: bold !important;
+    }
+  }
+}

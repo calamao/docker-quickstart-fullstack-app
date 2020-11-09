@@ -1,0 +1,37 @@
+<form class="main-container" 
+  [formGroup]="formGroup" 
+  (ngSubmit)="onSubmit()"
+  *blockUI="'main-config'"
+>
+  <div class="inputs">
+    <div class="column">
+      <app-input
+        [dataType]="'number'"
+        [label]="'Id'"
+        [required]="true"
+        [formControlName]="'id'"
+      ></app-input>
+
+      <app-input
+        [dataType]="'number'"
+        [label]="'cvs-modules.operation-manager.target.tag-size' | translate"
+        [required]="true"
+        [formControlName]="'tagSize'"
+        [decimals]="3"
+      ></app-input>
+
+    </div>
+  </div>
+
+  <div class="buttons">
+    <abb-button
+      [icon]="'abb/save'"
+      [text]="'base.action.save' | translate"
+      [type]="'primary-blue'"
+      (click)="onSubmit()"
+    ></abb-button>
+  </div>
+
+</form>
+
+

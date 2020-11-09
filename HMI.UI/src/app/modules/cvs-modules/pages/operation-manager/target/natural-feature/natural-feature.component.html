@@ -1,0 +1,96 @@
+<form
+  class="main-container"
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit()"
+  *blockUI="'operation-manager-target'"
+>
+  <div class="inputs">
+    <div class="column">
+      <div class="model-selector">
+        <abb-form-dropdown
+          [label]="'cvs-modules.operation-manager.target.3D-model' | translate"
+          [placeholder]="'3D Model...'"
+          [formControlName]="modelKeys.threeDModelId"
+        >
+          <abb-dropdown-option
+            *ngFor="let model of threeDModels"
+            [label]="model.value"
+            [value]="model.key"
+          >
+          </abb-dropdown-option>
+        </abb-form-dropdown>
+        <abb-button
+          class="add-model-icon"
+          [icon]="'abb/plus'"
+          [type]="'ghost'"
+          (click)="uploadFileComponent.open()"
+          title="{{
+            'cvs-modules.operation-manager.target.upload-3DModel' | translate
+          }}"
+        >
+        </abb-button>
+      </div>
+
+      <app-input
+        [dataType]="'number'"
+        [label]="'cvs-modules.operation-manager.target.minInlierRatioInit' | translate"
+        [required]="true"
+        [formControlName]="modelKeys.minInlierRatioInit"
+        [decimals]="3"
+        [min]="0"
+      ></app-input>
+
+      <app-input
+        [dataType]="'number'"
+        [label]="
+          'cvs-modules.operation-manager.target.minInlierRatioTraking' | translate
+        "
+        [required]="true"
+        [formControlName]="modelKeys.minInlierRatioTraking"
+        [decimals]="3"
+        [min]="0"
+      ></app-input>
+
+      <app-input
+        [dataType]="'number'"
+        [label]="
+          'cvs-modules.operation-manager.target.lineSearchLenghtInitRelative' | translate
+        "
+        [required]="true"
+        [formControlName]="modelKeys.lineSearchLenghtInitRelative"
+        [decimals]="3"
+        [min]="0"
+      ></app-input>
+      <div class="extra-actions">
+        <abb-button
+          [text]="'cvs-modules.operation-manager.target.init-pose-menu' | translate"
+          [type]="'ghost'"
+          (click)="initPoseMenu()"
+        ></abb-button>
+        <abb-button
+          [text]="'cvs-modules.operation-manager.target.init-target-tool-menu' | translate"
+          [type]="'ghost'"
+          (click)="initTargetToolMenu()"
+        ></abb-button>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <div class="buttons">
+    <abb-button
+      [icon]="'abb/save'"
+      [text]="'base.action.save' | translate"
+      [type]="'primary-blue'"
+      (click)="onSubmit()"
+    ></abb-button>
+  </div>
+
+  <app-upload-file
+    #uploadFileComponent
+    [closeOnClick]="true"
+    [onlyOneFile]="true"
+    (fileDropped)="droppedFile($event)"
+  ></app-upload-file>
+</form>

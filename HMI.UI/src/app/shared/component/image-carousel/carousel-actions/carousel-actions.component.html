@@ -1,0 +1,30 @@
+<div class="buttons">
+  <abb-button
+    [icon]="'abb/double-left'"
+    [sizeClass]="'large'"
+    [type]="'normal'"
+    (click)="moveTotalLeft.next()"
+    [disabled]="disableButtons || disableLeft"
+  ></abb-button>
+  <abb-button
+    [icon]="'abb/left'"
+    [sizeClass]="'large'"
+    [type]="'normal'"
+    (click)="moveLeft.next()"
+    [disabled]="disableButtons || disableLeft"
+  ></abb-button>
+  <abb-button
+    [icon]="'abb/right'"
+    [sizeClass]="'large'"
+    [type]="'normal'"
+    (click)="moveRight.next()"
+    [disabled]="disableButtons || disableRight"
+  ></abb-button>
+  <abb-button
+    [icon]="'abb/double-right'"
+    [sizeClass]="'large'"
+    [type]="'normal'"
+    (click)="moveTotalRight.next()"
+    [disabled]="disableButtons || disableRight"
+  ></abb-button>
+</div>

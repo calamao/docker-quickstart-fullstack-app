@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+.main-fields {
+  max-width: $input-max-width;
+}
+
+.step-name {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+::ng-deep carousel {
+  // if you want the carousel not to overlap the dropdown when it's open
+  z-index: 200 !important;
+}
+
+.offset-inputs {
+  display: flex;
+  justify-content: space-between;
+  .offset-input {
+    width: 30%;
+  }
+}

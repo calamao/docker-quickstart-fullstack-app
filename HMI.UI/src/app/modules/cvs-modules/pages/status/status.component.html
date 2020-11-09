@@ -1,0 +1,13 @@
+
+<div class="main-container">
+  <div class="video-container">
+    <app-video [showAPIVideo]="true"></app-video>
+  </div>
+  <div class="status-container">
+    <app-operation-status
+          [states]="CVGOperationStates | async" 
+          [operationName]="CVGOperationName" 
+          [title]="CVGOperationTitle"></app-operation-status>
+  </div>
+</div>
+

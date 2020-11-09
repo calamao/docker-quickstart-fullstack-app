@@ -1,0 +1,43 @@
+@import './material/theme-variables.scss';
+
+/**
+  COLORS
+*/
+/// MATERIAL COLORS
+
+// main colors extracted from the Theme:
+// default: 500, lighter: 100, darker: 700
+$primary-color: mat-color($app-primary-palette, default);
+// (should be equivalent to ABB blue: $abb-blue-color: #36f;)
+
+// accent colors
+$accent-color: mat-color($app-accent-palette, default);
+$accent-color-lighter: mat-color($app-accent-palette, lighter);
+$accent-color-darker: mat-color($app-accent-palette, darker);
+
+// warn colors
+$warn-color: mat-color($app-warn-palette, default);
+
+$abb-blue-color: #36f;
+
+$abb-primary-blue: $abb-blue-color;
+$gray-light: #6d696e;
+$abb-input-label-gray: #696969;
+
+// alarm colors
+$alarm-clear: #2E8A2D;
+// $alarm-minor: #FFDD01;
+// $alarm-major: #FF7E01;
+$alarm-critical: #FF2401; //F03040: is the color of notifications error
+$alarm-warning: #d17103;
+$alarm-indeterminate: $gray-light;
+$alarm-info: $abb-blue-color;
+
+// upload file placeHolder
+$upload-file-placeholder-background: #d17103;
+$upload-file-placeholder-border: #995303;
+
+/**
+  SIZES
+*/
+$input-max-width: 500px;

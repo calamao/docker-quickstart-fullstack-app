@@ -1,0 +1,106 @@
+
+
+
+/***
+  TABS
+  These are group of styles basically to make the content of the tab to fill the remaining area
+*/
+app-tabs {
+  min-height: 100%;
+
+  abb-tabcontrol {
+    min-height: 100% !important;
+    &>div {
+      flex-grow: 1;
+    }
+
+    .tabs-content {
+      display: flex;
+
+      abb-tab {
+        min-height: 100%;
+
+        &.active-tab {
+          width: 100%;
+        }
+
+        & > div {
+          min-height: 100%;
+        }
+
+        .app-tab-content {
+          min-height: 100%;
+          display: flex;
+
+          & > router-outlet {
+            // so it does not get the flex-grow: 1; property of '& > *'
+            display: none;
+          }
+
+          // this is the child sibling of tab content 'router-outlet' (also the parent of every component inside the tab)
+          & > * {
+            flex-grow: 1;
+          }
+        }
+
+
+        
+      }
+    }
+  }
+  
+}
+
+
+/***
+  Dropdown
+*/
+
+abb-dropdown, abb-form-dropdown {
+  // set background to white when the background is not (like the inputs)
+  // otherwise the inputs look white while the dropdown looks gray in a gray background
+  ng-select {
+    background: white;
+  }
+}
+
+
+/***
+  Abb Table
+*/
+
+abb-table {
+  flex: 1;
+  overflow: auto;
+
+  &.sticky-header {
+    thead {
+      // position: sticky; a "thead" cannot be sticky
+  
+      th {
+        position: sticky;
+        top: 0; /* Don't forget this, required for the stickiness */
+        background-color: white;
+  
+        &:after{
+          content: ' ';
+          position: absolute;
+          bottom: 0;
+          height: 1px;
+          left: 0;
+          right: 0;
+          background: black;
+        }
+      }
+    }
+
+    // remove top border of first row (abb style) as it seems a double border with the sticky one
+    tr:first-child>td {
+      border-top: 0;
+    }
+  }
+
+  tbody tr {
+    cursor: pointer;
+  }
+}

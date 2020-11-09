@@ -1,0 +1,79 @@
+<form class="main-fields" [formGroup]="formGroup">
+  <ng-container *ngIf="selectedImage">
+    <abb-dropdown
+      [label]="'base.type' | translate"
+      (selectedChange)="stepTypeChanged($event)"
+      [placeholder]="'Sensor selector...'"
+      [selected]="selectedImageStepType"
+    >
+      <abb-dropdown-option
+        *ngFor="let step of stepTypes"
+        [label]="step.name"
+        [value]="step.id"
+      >
+      </abb-dropdown-option>
+    </abb-dropdown>
+    <p class="offset-title">{{ "Offset" }}</p>
+    <div class="offset-inputs">
+      <div class="offset-input">
+        <app-input
+          [dataType]="'number'"
+          [label]="'X'"
+          [required]="true"
+          [formControlName]="'offsetX'"
+          [decimals]="3"
+        ></app-input>
+      </div>
+      <div class="offset-input">
+        <app-input
+          [dataType]="'number'"
+          [label]="'Y'"
+          [required]="true"
+          [formControlName]="'offsetY'"
+          [decimals]="3"
+        ></app-input>
+      </div>
+      <div class="offset-input">
+        <app-input
+          [dataType]="'number'"
+          [label]="'Z'"
+          [required]="true"
+          [formControlName]="'offsetZ'"
+          [decimals]="3"
+        ></app-input>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="buttons">
+    <abb-button
+      [icon]="'abb/save'"
+      [text]="'base.action.save' | translate"
+      [type]="'primary-blue'"
+      (click)="onSubmit()"
+      [disabled]="disableSave"
+    ></abb-button>
+  </div>
+</form>
+
+<p *ngIf="selectedImage" class="mat-subheading-1 step-name">{{ getSelectedImageName() }}</p>
+
+<app-carousel-actions
+  *ngIf="images?.length"
+  [disableButtons]="disableCarouselMove"
+  [disableLeft]="disableMoveLeft"
+  [disableRight]="disableMoveRight"
+  (moveRight)="moveNext()"
+  (moveLeft)="movePrevious()"
+  (moveTotalLeft)="moveFirst()"
+  (moveTotalRight)="moveLast()"
+></app-carousel-actions>
+
+<app-image-carousel
+  #carousel
+  *ngIf="images?.length"
+  [showImageTitle]="true"
+  [images]="images"
+  (selectedImage)="selectImage($event)"
+  (deletedImage)="deletedImage($event)"
+></app-image-carousel>

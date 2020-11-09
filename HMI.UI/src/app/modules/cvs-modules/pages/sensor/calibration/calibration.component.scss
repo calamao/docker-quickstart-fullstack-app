@@ -1,0 +1,55 @@
+@import 'variables.scss';
+
+.buttons {
+  margin-top: 15px;
+
+  abb-button {
+    display: block;
+    width: 250px;
+
+    ::ng-deep button {
+      width: 100%;
+    }
+  }
+
+  td.bottom {
+    padding-top: 20px;
+  }
+
+  td.right {
+    padding-left: 35px;
+  }
+}
+
+.inputs {
+  display: flex;
+
+  td {
+    vertical-align: top;
+
+    .label {
+      color: $abb-input-label-gray;
+      font-weight: 400;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    &.right-column {
+      padding-left: 35px;
+    }
+  }
+
+  .chessboard-fields {
+    display: flex;
+
+    app-input {
+      flex: 1;
+    }
+
+    .cross {
+      align-self: center;
+      margin: 0 10px;
+    }
+  }
+
+}

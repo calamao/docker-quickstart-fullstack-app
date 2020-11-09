@@ -1,0 +1,110 @@
+
+<div *blockUI="'operation-manager-camera'">
+  <div class="sensor-selector">
+    <abb-dropdown
+      (selectedChange)="sensorChanged($event)"
+      [placeholder]="'Sensor selector...'"
+      [selected]="componentSelectedItem"
+    >
+      <abb-dropdown-option
+        *ngFor="let sensor of sensors"
+        [label]="sensor.name"
+        [value]="sensor.id"
+      >
+      </abb-dropdown-option>
+    </abb-dropdown>
+  </div>
+  <ng-container *ngIf="selectedSensor && forceResetWhenChangedSensor">
+    <form
+      class="main-container"
+      [formGroup]="formGroup"
+      (ngSubmit)="onSubmit()"
+      
+    >
+      <div class="inputs">
+        <div class="column">
+          <app-input
+            [dataType]="'number'"
+            [label]="'FPS'"
+            [required]="true"
+            [formControlName]="'FPS'"
+            [min]="0"
+          ></app-input>
+  
+          <div class="exposure-block">
+            <app-input
+              [dataType]="'number'"
+              [label]="'cvs-modules.operation-manager.cam.exposure-time' | translate"
+              [required]="true"
+              [formControlName]="'exposureTime'"
+              [min]="0"
+            ></app-input>
+            <abb-toggle-switch
+              [label]="'base.action.auto' | translate"
+              [value]="autoExposure"
+              (change)="autoExposureAutoChange($event)"
+              [showIcons]="false"
+            >
+            </abb-toggle-switch>
+          </div>
+          
+  
+          <p class="mat-subheading-2">
+            {{ "cvs-modules.operation-manager.cam.region-of-interest" | translate }}
+          </p>
+  
+          <table class="region-of-interest">
+            <tr>
+              <td>
+                <app-input
+                  [dataType]="'number'"
+                  [label]="'base.width' | translate"
+                  [required]="true"
+                  [formControlName]="'width'"
+                  [min]="0"
+                ></app-input>
+              </td>
+              <td class="col2">
+                <app-input
+                  [dataType]="'number'"
+                  [label]="'Offset X'"
+                  [required]="true"
+                  [formControlName]="'offsetX'"
+                ></app-input>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <app-input
+                  [dataType]="'number'"
+                  [label]="'base.height' | translate"
+                  [required]="true"
+                  [formControlName]="'height'"
+                  [min]="0"
+                ></app-input>
+              </td>
+              <td class="col2">
+                <app-input
+                  [dataType]="'number'"
+                  [label]="'Offset Y'"
+                  [required]="true"
+                  [formControlName]="'offsetY'"
+                ></app-input>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+  
+      <div class="buttons">
+        <abb-button
+          [icon]="'abb/save'"
+          [text]="'base.action.save' | translate"
+          [type]="'primary-blue'"
+          (click)="onSubmit()"
+        ></abb-button>
+      </div>
+    </form>
+  </ng-container>
+  
+</div>

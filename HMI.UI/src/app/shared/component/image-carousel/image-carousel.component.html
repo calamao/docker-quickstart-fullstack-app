@@ -1,0 +1,31 @@
+<!-- <carousel
+  [images]="images"
+>
+</carousel> -->
+
+<carousel class="custom-carousel"
+  *ngIf="forceCarouselReset"
+  #carousel
+  [cellsToShow]="5"
+>
+  <div class="carousel-cell" *ngFor="let image of images">
+    <div class="container-image" 
+      [ngClass]="{'deleted': image.deleted, 'selected': image.selected}"
+      (mousedown)="mouseDown(image)"
+      (mouseup)="mouseUp(image)"
+    >
+      <img src="{{image.path}}">
+      <div class="delete-picture">
+        <abb-button
+          [icon]="'abb/trash'"
+          [sizeClass]="'large'"
+          [type]="'normal'"
+          (click)="deleteImage(image)"
+        ></abb-button>
+      </div>
+      <span *ngIf="showImageTitle" class="image-title">{{image.name}}</span>
+      <div class="deleted-overlay"></div>
+    </div>
+    
+  </div>
+  </carousel>

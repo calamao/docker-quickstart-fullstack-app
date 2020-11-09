@@ -1,0 +1,16 @@
+
+<div class="container" 
+  *ngIf="flags && selectedFlag"
+  (click)="isOpen = !isOpen">
+  <img src="{{selectedFlagSrc()}}">
+
+  <abb-menu [onRight]="true" [isOpen]="isOpen" (lostFocus)="isOpen = false" (select)="isOpen = false">
+    <abb-menu-item *ngFor="let flag of notSelectedFlags; last as isLast" 
+      (click)="selectFlag(flag)" 
+      [innerHtml]="flag.template"
+      class="flag"
+      [ngClass]="{'last': isLast}"
+    >
+    </abb-menu-item>
+  </abb-menu>
+</div>
