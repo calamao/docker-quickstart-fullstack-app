@@ -16,10 +16,6 @@ const routes: Routes = [
         loadChildren: () => import('./modules/robot/robot.module').then(m => m.RobotModule)
       },
       {
-        path: `${APPRoutes.CVSMODULES.BASE}/:${APPRoutes.CVSMODULES.moduleIdParameterName}`,
-        loadChildren: () => import('./modules/cvs-modules/cvs-modules.module').then(m => m.CVSModulesModule)
-      },
-      {
         path: 'control',
         loadChildren: () => import('./modules/control/control.module').then(m => m.ControlModule)
       },

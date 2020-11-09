@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { image as harcodedBase64Image } from '@app/modules/cvs-modules/services/operation-manager/fake-data';
 
 
 @Component({

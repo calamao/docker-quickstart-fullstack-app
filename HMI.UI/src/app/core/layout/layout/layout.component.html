@@ -40,26 +40,7 @@
           >
           <abb-icon [name]="'abb/robot'" [sizeClass]="'large'"></abb-icon>
         </abb-sidebar-navi-tile>
-        <abb-sidebar-navi-tile
-          [title]="'UVT'" 
-          [routerLink]="routes.CVSMODULES.moduleRoute('uvt')" 
-          routerLinkActive 
-          #rlaAvg="routerLinkActive" 
-          [active]="rlaAvg.isActive"
-          (click)="sideBarItemStopPropagation($event)"
-          >
-          <abb-icon [name]="'abb/more'" [sizeClass]="'large'"></abb-icon>
-        </abb-sidebar-navi-tile>
-        <abb-sidebar-navi-tile
-          [title]="'CVG'"
-          [routerLink]="routes.CVSMODULES.moduleRoute('cvg')" 
-          routerLinkActive 
-          #rlaCVG="routerLinkActive" 
-          [active]="rlaCVG.isActive"
-          (click)="sideBarItemStopPropagation($event)"
-          >
-          <abb-icon [name]="'abb/robot-tool'" [sizeClass]="'large'"></abb-icon>
-        </abb-sidebar-navi-tile>
+        
       </abb-sidebar-navi>
     </abb-app-left-pane>
 

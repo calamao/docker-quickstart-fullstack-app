@@ -1,98 +1,23 @@
 {
 	"base": {
 		"action": {
-			"auto": null,
 			"cancel": null,
 			"ok": null,
-			"save": null,
-			"upload-file": null
+			"save": null
 		},
 		"confirmation": {
 			"confirm-action": null,
 			"title": null
 		},
-		"height": null,
 		"messages": {
 			"executed-successful": null,
 			"general-error": null,
 			"pending-changes-confirmation": null
 		},
-		"rotations": null,
-		"step": null,
 		"tabs": {
-			"module-overview": null,
-			"operation-manager": null,
-			"overview": "Estado",
-			"parameter-editor": null,
-			"sensor": null
+			"overview": "Estado"
 		},
-		"translations": null,
-		"type": null,
-		"width": null
-	},
-	"cvs-modules": {
-		"operation-manager": {
-			"cam": {
-				"exposure-time": null,
-				"region-of-interest": null,
-				"title": null
-			},
-			"create-operation": null,
-			"delete-operation": null,
-			"messages": {
-				"confirm-delete-operation": null
-			},
-			"natural-feature-operation": null,
-			"operation-name": null,
-			"operation-type": null,
-			"steps": {
-				"title": null
-			},
-			"tag-operation": null,
-			"target": {
-				"3D-model": null,
-				"init-pose-menu": null,
-				"init-target-tool-menu": null,
-				"lineSearchLenght": null,
-				"lineSearchLenghtInitRelative": null,
-				"minInlierRatio": null,
-				"minInlierRatioInit": null,
-				"minInlierRatioTraking": null,
-				"tag-size": null,
-				"title": null,
-				"try-matching": null,
-				"upload-3DModel": null
-			}
-		},
-		"parameter-editor": {
-			"modified-parameters": null
-		},
-		"sensor": {
-			"calibration": {
-				"check-calibration": null,
-				"chessboard-size": null,
-				"clear-reference": null,
-				"exposure-time": null,
-				"recalculate": null,
-				"recalculation-needed": null,
-				"set-reference": null,
-				"square-size": null
-			},
-			"check-calibration": null,
-			"create-sensor": null,
-			"delete-sensor": null,
-			"extrinsic-calibration": null,
-			"main-config": {
-				"intrinsic-calibration": null,
-				"label": null,
-				"title": null,
-				"upload-file-here": null
-			},
-			"messages": {
-				"confirm-delete-sensor": null
-			},
-			"sensor-name": null
-		}
+		"upload-file-here": null
 	},
 	"layout": {
 		"changePassword": null,

@@ -5,7 +5,7 @@
   (fileDropped)="uploadFile($event)">
   <div class="content">
     <abb-icon [name]="'abb/upload'" [sizeClass]="'large'" class="upload-icon"></abb-icon><br>
-    <span class="mat-display-2">{{'cvs-modules.sensor.main-config.upload-file-here' | translate}}</span>
+    <span class="mat-display-2">{{'base.upload-file-here' | translate}}</span>
   </div>
   
   <input #nativeInputFile hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
