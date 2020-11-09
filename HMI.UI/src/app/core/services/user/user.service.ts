@@ -9,7 +9,7 @@ import { Role, User } from './user.model';
 import { APPRoutes, OPERATOR_PASSWORD, OPERATOR_USER_NAME } from '@app/core/constants/constants';
 import { Configuration as APIConfiguration } from '@app/core/api/generated/configuration';
 import { Router } from '@angular/router';
-import { NotificationService } from '../notification/notification.service';
+import { SnackbarService, SnackBarType } from '@app/shared/services/snackbar.service';
 
 export interface PermissionOptions {
   minimumRole: Role;
@@ -33,8 +33,8 @@ export class UserService {
     private apiUserService: APIUserService,
     private apiConfiguration: APIConfiguration,
     private router: Router,
-    private notificationService: NotificationService,
-  ) {
+    private snackbarService: SnackbarService,
+    ) {
     this.subscribeToUserChanges();
     this.checkUserIsLoggedInOrAutoLogin();
   }
@@ -87,10 +87,10 @@ export class UserService {
       return await this.login(OPERATOR_USER_NAME, OPERATOR_PASSWORD);
     } catch (error) {
       console.error('Problem with authentication service');
-      this.notificationService.addNotification({
-        severity: 'error',
-        text: 'Problem with authentication service',
-      });
+      this.snackbarService.openSnackBar(
+        'Problem with authentication service',
+        SnackBarType.error,
+      );
     }
   }
 

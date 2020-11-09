@@ -16,6 +16,7 @@ import { InputModule } from './input/input.module';
 import { UploadFileComponent } from './upload-file/upload-file.component';
 import { ConfirmationComponent } from './dialog/confirmation/confirmation.component';
 import { VideoModule } from './video/video.module';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { VideoModule } from './video/video.module';
     CollapsibleTabDirective,
     UploadFileComponent,
     ConfirmationComponent,
+    SnackbarComponent,
   ],
   exports: [
     MenuModule,

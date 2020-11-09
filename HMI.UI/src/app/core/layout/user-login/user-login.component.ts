@@ -1,3 +1,5 @@
+import { SnackbarService, SnackBarType } from '@app/shared/services/snackbar.service';
+import { SnackbarService } from './../../../shared/services/snackbar.service';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from './../../services/user/user.service';
 import {
@@ -17,7 +19,6 @@ import {
 import { AbstractControlOrT } from '@app/shared/utils/types';
 import { ValidationResult } from '@abb/abb-common-ux-angular-9';
 import { marker } from '@biesbjerg/ngx-translate-extract-marker';
-import { NotificationService } from '@app/core/services/notification/notification.service';
 import { FormHelper } from '@app/shared/utils/form.helper';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -91,7 +92,7 @@ export class UserLoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private dialog: DialogComponent,
-    private notificationService: NotificationService,
+    private snackbarService: SnackbarService,
     private translateService: TranslateService,
     @Inject(MAT_DIALOG_DATA) public data: UserLoginComponentDialogData // to pass data to the dialog
   ) {}
@@ -152,10 +153,10 @@ export class UserLoginComponent implements OnInit {
   async onSubmitChangePassword() {
     const data: FormGroupModel = this.formGroup.value;
     await this.userService.changePassword(data.password, data.newPassword);
-    this.notificationService.addNotification({
-      severity: 'success',
-      text: this.translateService.instant('layout.login.changePasswordSuccess'),
-    });
+    this.snackbarService.openSnackBarTranslated(
+      marker('layout.login.changePasswordSuccess'),
+      SnackBarType.success,
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

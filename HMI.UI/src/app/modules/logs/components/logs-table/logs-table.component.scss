@@ -1,15 +1,13 @@
-@import 'variables.scss';
+@import "variables.scss";
 
-:host {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+table {
+  width: 100%;
 }
 
-.footer {
-  display: table;
-  & > * {
-    display: table-cell;
+.table-row {
+  cursor: pointer;
+  &:hover {
+    background-color: $app-light-gray;
   }
 }
 

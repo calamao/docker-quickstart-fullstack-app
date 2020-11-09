@@ -2,8 +2,8 @@ import { Public } from '@app/shared/utils/types';
 import { Pagination, PaginationResult } from '../../../shared/models/pagination';
 import { GeneralEventsService } from '../../../core/services/events/general-events.service';
 import { Injectable } from '@angular/core';
-import { NotificationService } from '@app/core/services/notification/notification.service';
 import { LogElement, LogSeverity, LogsService, LogStatus } from './logs.service';
+import { SnackbarService, SnackBarType } from '@app/shared/services/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,7 @@ export class LogsServiceMock implements Public<LogsService> {
 
   constructor(
     private eventsService: GeneralEventsService,
-    private notificationService: NotificationService,
+    private snackbarService: SnackbarService,
   ) {
     /** MOCK LOGS */
     //Array.from({length: 40}, () => Math.floor(Math.random() * 40));
@@ -97,10 +97,10 @@ export class LogsServiceMock implements Public<LogsService> {
         ...this.activeLogs,
       ];
 
-      this.notificationService.addNotification({
-        severity: 'error',
-        text: `Error log: ${log.title}`,
-      });
+      this.snackbarService.openSnackBar(
+        `Error log: ${log.title}`,
+        SnackBarType.error,
+      );
 
     });
   }

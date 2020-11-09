@@ -1,71 +1,96 @@
-import { tap } from 'rxjs/operators';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  OnDestroy,
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LogElement, LogsService } from '../../services/logs.service';
+import { SnackbarService } from '@app/shared/services/snackbar.service';
 import { Subscription } from 'rxjs';
-import { NotificationService } from '@app/core/services/notification/notification.service';
+import { tap } from 'rxjs/operators';
+import { LogElement, LogsService } from '../../services/logs.service';
+import { LogsDataSource } from './logs.datasource';
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
 
 @Component({
   selector: 'app-logs-table',
   templateUrl: './logs-table.component.html',
   styleUrls: ['./logs-table.component.scss'],
 })
-export class LogsTableComponent implements OnInit, OnDestroy {
+export class LogsTableComponent implements OnInit, OnDestroy, AfterViewInit {
   private subscriptions: Subscription[] = [];
-  elements: LogElement[] = [];
-  totalElements: number;
-  currentPage = 1;
-  currentPageSize = 20;
+
+  displayedColumns: string[] = ['code', 'module', 'time', 'title'];
+  dataSource: LogsDataSource;
+
+  get totalElements() {
+    return this.dataSource.totalElements;
+  }
+  currentPage = 0;
+  currentPageSize = 10;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     private logsService: LogsService,
-    private router: Router,
     private route: ActivatedRoute,
-    private notificationService: NotificationService,
-  ) {}
+    private router: Router,
+    private snackbarService: SnackbarService,
+    ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.dataSource = new LogsDataSource(this.logsService);
     this.subscriptions.push(
       this.route.queryParams
         .pipe(
           tap((params) => {
-            this.currentPage = Number(params.page ?? 1);
-            this.getLogs();
+            this.currentPage = Number(params.page ?? 0);
+            this.dataSource.loadLogs(this.currentPage, this.currentPageSize);
+            if (this.paginator) {
+              this.paginator.pageIndex = this.currentPage;
+            }
           })
         )
         .subscribe()
     );
   }
 
+  ngAfterViewInit() {
+    // this.dataSource.paginator = this.paginator;
+    this.paginator.page.pipe(tap(() => this.loadLogsPage())).subscribe();
+  }
+
   ngOnDestroy() {
     this.subscriptions.forEach((s) => s.unsubscribe());
   }
 
-  private async getLogs() {
-    const page = await this.logsService.getLogs({
-      page: this.currentPage,
-      pageSize: this.currentPageSize,
-      orderByDescendant: 'time',
-    });
-
-    this.elements = page.elements;
-    this.totalElements = page.totalElements;
+  loadLogsPage() {
+    this.currentPage = this.paginator.pageIndex;
+    this.dataSource.loadLogs(
+      this.paginator.pageIndex,
+      this.paginator.pageSize
+    );
   }
 
-  viewLog(id: string) {
-    this.router.navigate(['/logs/view-log', id], {
-      queryParams: { page: this.currentPage },
+  viewLog(row: LogElement) {
+    this.router.navigate(['/logs/view-log', row.id], {
+      queryParams: { page: this.paginator.pageIndex },
     });
-  }
-
-  currentPageChange(newPage: number) {
-    this.currentPage = newPage;
-    this.getLogs();
   }
 
   async acknowledgeAll() {
     await this.logsService.acknowledgeAll();
-    this.elements.forEach(log => log.status = 'normal');
-    this.notificationService.defaultSuccess();
+    this.dataSource.reload();
+    this.snackbarService.defaultSuccess();
   }
+
 }

@@ -1,5 +1,4 @@
-
-
+@import 'variables.scss';
 
 /***
   TABS
@@ -65,42 +64,25 @@ abb-dropdown, abb-form-dropdown {
 }
 
 
+
 /***
-  Abb Table
+  Snackbar
 */
 
-abb-table {
-  flex: 1;
-  overflow: auto;
-
-  &.sticky-header {
-    thead {
-      // position: sticky; a "thead" cannot be sticky
-  
-      th {
-        position: sticky;
-        top: 0; /* Don't forget this, required for the stickiness */
-        background-color: white;
-  
-        &:after{
-          content: ' ';
-          position: absolute;
-          bottom: 0;
-          height: 1px;
-          left: 0;
-          right: 0;
-          background: black;
-        }
-      }
-    }
-
-    // remove top border of first row (abb style) as it seems a double border with the sticky one
-    tr:first-child>td {
-      border-top: 0;
-    }
+.custom-snackbar {
+  &.mat-snack-bar-container{
+    // reset original margin. Remove the bottom margin which makes unclickable some elements like tabs, close to the notification.
+    margin: 0;
+    margin-top: 24px;
   }
 
-  tbody tr {
-    cursor: pointer;
+  &.snackbar-success {
+    background-color: $alarm-clear;
+    color: white;
+  }
+
+  &.snackbar-error {
+    background-color: $warn-color;
+    color: white;
   }
 }

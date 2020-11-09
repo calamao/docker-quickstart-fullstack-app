@@ -1,11 +1,10 @@
 import { Pagination, PaginationResult } from './../../../shared/models/pagination';
 import { GeneralEventsService } from './../../../core/services/events/general-events.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { NotificationService } from '@app/core/services/notification/notification.service';
 import { LogsService as APILogsService } from '@app/core/api/generated/api/logs.service';
 import { map } from 'rxjs/operators';
 import { Log, LogType } from '@app/core/api/generated';
+import { SnackbarService, SnackBarType } from '@app/shared/services/snackbar.service';
 
 export type LogStatus = 'pending' | 'normal';
 export type LogSeverity = 'info' | 'error' | 'warn';
@@ -48,7 +47,7 @@ export class LogsService {
 
   constructor(
     private eventsService: GeneralEventsService,
-    private notificationService: NotificationService,
+    private snackbarService: SnackbarService,
     private apiLogsService: APILogsService,
   ) {
     this.notificationsSubscribe();
@@ -107,10 +106,10 @@ export class LogsService {
         ...this.activeLogs,
       ];
 
-      this.notificationService.addNotification({
-        severity: 'error',
-        text: `Error log: ${log.title}`,
-      });
+      this.snackbarService.openSnackBar(
+        `Error log: ${log.title}`,
+        SnackBarType.error,
+      );
 
     });
   }

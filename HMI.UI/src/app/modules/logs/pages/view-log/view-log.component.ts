@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LogsService } from '../../services/logs.service';
 import { Observable } from 'rxjs';
-import { NotificationService } from '@app/core/services/notification/notification.service';
+import { SnackbarService, SnackBarType } from '@app/shared/services/snackbar.service';
 
 @Component({
   templateUrl: './view-log.component.html',
@@ -21,7 +21,7 @@ export class ViewLogComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private logsService: LogsService,
-    private notificationService: NotificationService,
+    private snackbarService: SnackbarService,
     ) { }
 
   ngOnInit(): void {
@@ -43,10 +43,10 @@ export class ViewLogComponent implements OnInit {
     try {
       this.selectedLog = await this.logsService.getLog(logId);
     } catch (error) {
-      this.notificationService.addNotification({
-        severity: 'error',
-        text: 'Error loading log...'
-      });
+      this.snackbarService.openSnackBar(
+        'Error loading log...',
+        SnackBarType.error,
+      );
     }
   }
 
