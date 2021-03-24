@@ -17,10 +17,18 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
+import { NotificationType } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
+
+export interface DevSignalRAnyNotificationPostRequestParams {
+    /** The type. */
+    type?: NotificationType;
+    /** The payload. */
+    payload?: string | null;
+}
 
 
 @Injectable({
@@ -82,6 +90,69 @@ export class DeveloperService {
             throw Error("key may not be null if value is not object or array");
         }
         return httpParams;
+    }
+
+    /**
+     * The SignalR any notification.
+     * @param requestParameters
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public devSignalRAnyNotificationPost(requestParameters: DevSignalRAnyNotificationPostRequestParams, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<any>;
+    public devSignalRAnyNotificationPost(requestParameters: DevSignalRAnyNotificationPostRequestParams, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpResponse<any>>;
+    public devSignalRAnyNotificationPost(requestParameters: DevSignalRAnyNotificationPostRequestParams, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: undefined}): Observable<HttpEvent<any>>;
+    public devSignalRAnyNotificationPost(requestParameters: DevSignalRAnyNotificationPostRequestParams, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: undefined}): Observable<any> {
+        const type = requestParameters.type;
+        const payload = requestParameters.payload;
+
+        let queryParameters = new HttpParams({encoder: this.encoder});
+        if (type !== undefined && type !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>type, 'type');
+        }
+        if (payload !== undefined && payload !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>payload, 'payload');
+        }
+
+        let headers = this.defaultHeaders;
+
+        // authentication (Bearer) required
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["Bearer"] || this.configuration.apiKeys["Authorization"];
+            if (key) {
+                headers = headers.set('Authorization', key);
+            }
+        }
+
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (httpHeaderAcceptSelected !== undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
+        return this.httpClient.post<any>(`${this.configuration.basePath}/dev/signalR-any-notification`,
+            null,
+            {
+                params: queryParameters,
+                responseType: <any>responseType,
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
     }
 
     /**

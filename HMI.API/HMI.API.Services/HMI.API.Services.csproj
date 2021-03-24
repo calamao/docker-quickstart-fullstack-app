@@ -17,6 +17,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\HMI.API.DataAccess\HMI.API.DataAccess.csproj" />
+		<ProjectReference Include="..\HMI.API.Infrastructure\HMI.API.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>

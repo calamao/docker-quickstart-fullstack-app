@@ -9,8 +9,9 @@ using AutoMapper;
 using HMI.API.DataAccess.Contexts;
 using HMI.API.Extensions;
 using HMI.API.Middleware;
+using HMI.API.Services.OpcUa.ApiModels.Notifications;
 using HMI.API.SignalR;
-
+using HMI.API.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -98,6 +99,9 @@ namespace HMI.API
                                            }
                                        };
                     options.AddSecurityRequirement(security);
+
+                    // add custom models to the Swagger Schema which are not in the endpoints (used for notification models)
+                    options.DocumentFilter<CustomModelDocumentFilter<NotificationModels>>();
 
                     var pathToXmlDocumentsToLoad = AppDomain.CurrentDomain.GetAssemblies()
                         .Where(x => x.FullName != null && x.FullName.StartsWith(Assembly.GetExecutingAssembly().GetName().Name))

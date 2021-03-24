@@ -184,6 +184,39 @@
         }
       }
     },
+    "/dev/signalR-any-notification": {
+      "post": {
+        "tags": [
+          "Developer"
+        ],
+        "summary": "The SignalR any notification.",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The type.",
+            "schema": {
+              "$ref": "#/components/schemas/NotificationType"
+            }
+          },
+          {
+            "name": "payload",
+            "in": "query",
+            "description": "The payload.",
+            "schema": {
+              "type": "string",
+              "description": "The payload.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/items": {
       "get": {
         "tags": [
@@ -2334,6 +2367,13 @@
         "additionalProperties": false,
         "description": "The revoke token request."
       },
+      "NotificationType": {
+        "enum": [
+          "Logs",
+          "ModuleStatus"
+        ],
+        "type": "string"
+      },
       "Tag": {
         "type": "object",
         "properties": {
@@ -3111,6 +3151,27 @@
         },
         "additionalProperties": false,
         "description": "The reset password admin request."
+      },
+      "NotificationModel": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/NotificationType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotificationModels": {
+        "type": "object",
+        "properties": {
+          "notificationModel": {
+            "$ref": "#/components/schemas/NotificationModel"
+          },
+          "notificationLogPayload": {
+            "$ref": "#/components/schemas/Log"
+          }
+        },
+        "additionalProperties": false
       }
     },
     "securitySchemes": {

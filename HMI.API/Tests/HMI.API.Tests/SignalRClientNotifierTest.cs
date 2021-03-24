@@ -1,6 +1,7 @@
 ﻿using System;
 
 using HMI.API.DataAccess.Models;
+using HMI.API.Infrastructure.Notifications;
 using HMI.API.Services.OpcUa.ApiModels;
 using HMI.API.SignalR;
 
@@ -47,7 +48,7 @@ namespace HMI.API.Tests
         public void NotifyClient()
         {
             // Arrange
-            const string Type = "ObjectType";
+            const NotificationType Type = NotificationType.Logs;
             var payload = new Log
                               {
                                   Id = 100,
@@ -63,10 +64,10 @@ namespace HMI.API.Tests
             this.hubContextMock.Setup(x => x.Clients.All.BroadcastMessage(It.IsAny<string>(), It.IsAny<string>()));
 
             // Act
-            this.testee.NotifyClient(Type, payload);
+            this.testee.NotifyAllClients(Type, payload);
 
             // Assert
-            this.hubContextMock.Verify(x => x.Clients.All.BroadcastMessage(Type, JsonConvert.SerializeObject(payload)));
+            this.hubContextMock.Verify(x => x.Clients.All.BroadcastMessage(Type.ToString(), It.IsAny<string>()));
         }
     }
 }

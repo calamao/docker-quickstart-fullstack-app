@@ -1,6 +1,7 @@
 ﻿using System;
 
 using HMI.API.DataAccess.Models;
+using HMI.API.Infrastructure.Notifications;
 using HMI.API.Services.OpcUa.ApiModels;
 using HMI.API.SignalR;
 
@@ -55,7 +56,22 @@ namespace HMI.API.Controllers
                               Description = $"Lore Ipsum Description ${Code}",
                               Actions = $"Lore Ipsum Actions {Code}"
                           };
-            this.notifyClient.NotifyClient(log.GetType().ToString(), log);
+            this.notifyClient.NotifyAllClients(NotificationType.Logs, log);
+            return this.Ok();
+        }
+
+        /// <summary>
+        /// The SignalR any notification.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="payload">The payload.</param>
+        /// <returns>The <see cref="IActionResult"/>.</returns>
+        [HttpPost("signalR-any-notification")]
+        [Produces("application/json")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public IActionResult SignalRAnyNotification(NotificationType type, string payload)
+        {
+            this.notifyClient.NotifyAllClients(type, payload);
             return this.Ok();
         }
     }

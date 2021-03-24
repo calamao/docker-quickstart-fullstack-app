@@ -32,8 +32,8 @@ export class GeneralEventsService {
       map(
         payload =>
           ({
-            id: payload.Id.toString(),
-            title: payload.Title,
+            id: payload.id.toString(),
+            title: payload.title,
           } as LogsNewErrorEventMessage)
       )
     );
