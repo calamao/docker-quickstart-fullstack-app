@@ -16,6 +16,7 @@ services:
     build:
       context: .
       dockerfile: ./HMI.API/HMI.API/Dockerfile
+      target: final
     image: 'appapi'
     ports:
       - '8080:80'

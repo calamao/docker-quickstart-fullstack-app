@@ -7,7 +7,7 @@ services:
       - WEB_APP_PORT=4200 # webpack server hot reload
   app.api:
     build:
-      dockerfile: ./HMI.API/HMI.API/Dockerfile.dev
+      target: dev
     environment: 
       - LOG_LEVEL=1       
       - OPCUA_MODE=0

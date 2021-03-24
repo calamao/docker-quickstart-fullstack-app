@@ -46,7 +46,7 @@ namespace HMI.API.Controllers
             const int Code = 1255489;
             var log = new Log
                           {
-                              Id = 100,
+                              Id = 1,   // match with a real logId so it can be visualized later
                               Code = $"Code {Code}",
                               IsAcknowledged = true,
                               Module = $"Module {Code}",
