@@ -8,7 +8,7 @@
     <span class="mat-display-2">{{'base.upload-file-here' | translate}}</span>
   </div>
   
-  <input #nativeInputFile hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+  <input #nativeInputFile hidden type="file" #fileInput (change)="uploadFile($any($event.target).files)">
 </div>
 
 <!-- <div  class="files-list" *ngFor="let file of files;let i= index">

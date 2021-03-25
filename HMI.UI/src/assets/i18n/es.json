@@ -9,7 +9,7 @@
 			"confirm-action": null,
 			"title": null
 		},
-		"home": "Casa",
+		"home": "Inicio",
 		"logs": null,
 		"messages": {
 			"executed-successful": null,
@@ -37,7 +37,7 @@
 	},
 	"logs": {
 		"acknowledge": null,
-		"acknowledge-all": null,
+		"acknowledge-all": "Marcar todos como leídos",
 		"actions": null,
 		"code": null,
 		"date-time": null,

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TabsComponent } from './tabs.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [TabsComponent],
@@ -12,6 +13,7 @@ import { TabsComponent } from './tabs.component';
     RouterModule,
     TranslateModule,
     ScrollableOverflowWrapperModule,
+    MatTabsModule,
   ],
   exports: [
     TabsComponent,
