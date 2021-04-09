@@ -2,8 +2,8 @@
 This is a demo project which can be used as a quickstart in the technologies used or simply as a repository of code snippets that can be copy&pasted into another project.
 
 The main stack of technologies that you will find in this project is:
-- ASP.NET Core 3.1
-- Angular
+- .NET 5
+- Angular 11
 - SQLite
 - nginx as reverse-proxy gateway
 
