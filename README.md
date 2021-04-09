@@ -23,8 +23,15 @@ The main stack of technologies that you will find in this project is:
 7. Authentication
     - Based on token cookie and Authorization header token
     - Keep alive process to refresh token
+    - Change password feature
+    - The UI autologs-in with a user called "Operator". There is no concept implemented of showing a starting login page (which is the most common scenario in a webapp)
 8. Authorization
     - Based on Roles. Each user has a role assigned and the UI might restrict access based on that.
+9. Generic application form input 
+   - Reusable input for all the application (text, numeric, date,...)
+   - Common style and validations
+   - Valid only for Reactive Forms
+
 
 ## Backend
 1.	.Net core API Authentication Integrated
