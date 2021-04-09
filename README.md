@@ -11,21 +11,19 @@ The main stack of technologies that you will find in this project is:
 ## Frontend
 1.	Angular Material Theme
     - Customizable fonts and colors with variables that can be reused throughout all the UI
-    - Integrated App just to test the theme
 2.	UI client API generator
-    - It uses the openAPI specification from the API to generate a full featured client with all the Typescript typings, ready to be used
-    - It’s implemented as an Angular client but the same generator can be used for other frameworks or even for just for the typings and be used for any framework
+    - It uses the [OpenAPI](https://swagger.io/specification/) specification from the API to generate a full featured client with all the Typescript typings, ready to be used. Based on the tool [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
+    - It’s implemented as an Angular client but the same generator can be used for other frameworks or even for just for the typings and be used for any framework (Angular, React, Vue,...)
 3.	Push notifications
     - Socket client via SignalR
 4.	UI integrated with Docker
     - With hot reloading for development
 5.	Multilanguage with ngx-translate
 6.	Angular folder structure based on “shared”, “core”, “feature modules”, “pages” and “components”
-7.	Nginx configuration as a reverse-proxy
-8. Authentication
+7. Authentication
     - Based on token cookie and Authorization header token
     - Keep alive process to refresh token
-9. Authorization
+8. Authorization
     - Based on Roles. Each user has a role assigned and the UI might restrict access based on that.
 
 ## Backend
@@ -38,7 +36,16 @@ The main stack of technologies that you will find in this project is:
     - Used to store users and languages as an example
 4. Unit tests with xUnit
     - Mock with SQLite Inmemory Database or real local database
+5. Authorization based on roles
 
+
+## Gateway
+Nginx configuration as a reverse-proxy gateway (as a separate docker service)
+
+- Avoids CORS issues
+- Exposes Frontend and Backend API from a single endpoint service
+- Queries are redirected to the WebApp or API based on the url path.
+- It can be used as a single point for HTTPS communication (not implemented)
 
 # Getting Started
 
