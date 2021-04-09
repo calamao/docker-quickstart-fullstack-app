@@ -37,6 +37,7 @@ export class UserService {
     ) {
     this.subscribeToUserChanges();
     this.checkUserIsLoggedInOrAutoLogin();
+    this.keepAlive();
   }
 
   /** With this method we want to recalculate permissions or throw the user to a different route in case it does not have permissions.
@@ -64,10 +65,28 @@ export class UserService {
       // user changed
       this._currentUser = user;
 
-      // update apiKey (with the token) for next API calls
-      this.apiConfiguration.apiKeys = this.apiConfiguration.apiKeys || {};
-      this.apiConfiguration.apiKeys.Authorization = user.token;
+      this.refreshToken(user.token);
     });
+  }
+
+  private keepAlive() {
+    const everyMinutes = 10;
+    setInterval(async () => {
+      console.log('keepAlive!!!');
+      this.authService.authRefreshTokenPost().toPromise().then(user => {
+        this.refreshToken(user.jwtToken);
+        /** We don't 'notify' a change of user by the 'observable' as that would have many consecuences... redirections, etc
+         * but we update the current token in the user (although it should not be used from the user)
+         */
+        this._currentUser.token = user.jwtToken;
+      });
+    }, everyMinutes * 60 * 1000);
+  }
+
+  private refreshToken(token: string) {
+    // update apiKey (with the token) for next API calls
+    this.apiConfiguration.apiKeys = this.apiConfiguration.apiKeys || {};
+    this.apiConfiguration.apiKeys.Authorization = token;
   }
 
   private checkUserIsLoggedInOrAutoLogin() {
