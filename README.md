@@ -7,6 +7,10 @@ The main stack of technologies that you will find in this project is:
 - SQLite
 - nginx as reverse-proxy gateway
 
+# Architecture diagram
+
+![alt text](https://github.com/calamao/docker-quickstart-fullstack-app/blob/main/docs/architecture-docker-app.png?raw=true)
+
 # Project features
 ## Frontend
 1.	Angular Material Theme
